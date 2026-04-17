@@ -1,0 +1,242 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: auth-service
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth_service?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 20000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        use_sql_comments: true
+        jdbc:
+          batch_size: 20
+          order_inserts: true
+          order_updates: true
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+
+  # Configuración de Resilience4j
+  resilience4j:
+    circuitbreaker:
+      instances:
+        authCircuitBreaker:
+          registerHealthIndicator: true
+          slidingWindowSize: 10
+          slidingWindowType: COUNT_BASED
+          minimumNumberOfCalls: 5
+          permittedNumberOfCallsInHalfOpenState: 3
+          automaticTransitionFromOpenToHalfOpenEnabled: true
+          waitDurationInOpenState: 30s
+          failureRateThreshold: 50%
+          eventConsumerBufferSize: 100
+          recordExceptions:
+            - java.lang.Exception
+          ignoreExceptions:
+            - java.lang.IllegalArgumentException
+    retry:
+      instances:
+        authRetry:
+          maxAttempts: 3
+          waitDuration: 1s
+          retryExceptions:
+            - java.lang.Exception
+          ignoreExceptions:
+            - java.lang.IllegalArgumentException
+
+  # Configuración de Actuator
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics,circuitbreakers,retries
+    endpoint:
+      health:
+        show-details: always
+    health:
+      circuitbreakers:
+        enabled: true
+
+# Configuración JWT
+jwt:
+  secret: miClaveSecretaMuyLargaYSeguraParaJWT1234567890ABCDEF
+  expiration: 900 # 15 minutos en segundos
+  refresh-expiration: 604800 # 7 días en segundos
+
+# Configuración de logging
+logging:
+  level:
+    com.hospital.authservice: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    io.github.resilience4j: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/auth-service.log
+
+# Configuración de SpringDoc OpenAPI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none
+    disable-swagger-default-url: true
+    display-request-duration: true
+    default-models-expand-depth: 1
+    default-model-expand-depth: 1
+  show-actuator: true
+
+# Configuración personalizada
+auth:
+  security:
+    cors:
+      allowed-origins: "http://localhost:3000,http://localhost:4200"
+      allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
+      allowed-headers: "*"
+      allow-credentials: true
+      max-age: 3600
+  tokens:
+    cleanup:
+      enabled: true
+      cron: "0 0 2 * * *" # Todos los días a las 2 AM
+    blacklist:
+      cleanup-enabled: true
+    refresh:
+      rotation-enabled: true
+  password:
+    min-length: 8
+    max-length: 100
+    pattern: "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]"
+  account:
+    max-attempts: 5
+    lock-duration-minutes: 30
+
+---
+# Perfil de desarrollo
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/auth_service_dev?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: password
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    com.hospital.authservice: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+---
+# Perfil de producción
+spring:
+  config:
+    activate:
+      on-profile: prod
+  
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/auth_service_prod?useSSL=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:auth_user}
+    password: ${DB_PASSWORD:auth_password}
+    hikari:
+      maximum-pool-size: 50
+      minimum-idle: 10
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  
+  sql:
+    init:
+      mode: never
+
+logging:
+  level:
+    com.hospital.authservice: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  file:
+    name: /var/log/auth-service/application.log
+
+jwt:
+  secret: ${JWT_SECRET:defaultSecretKeyForProductionEnvironment123456789}
+  expiration: ${JWT_EXPIRATION:900}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800}
+
+---
+# Perfil de test
+spring:
+  config:
+    activate:
+      on-profile: test
+  
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+  h2:
+    console:
+      enabled: true
+
+jwt:
+  secret: testSecretKeyForTestingEnvironment123456789
+  expiration: 60
+  refresh-expiration: 300
+
+logging:
+  level:
+    com.hospital.authservice: DEBUG

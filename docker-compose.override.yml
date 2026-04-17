@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  auth-service:
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      LOGGING_LEVEL_COM_HOSPITAL_AUTHSERVICE: DEBUG
+    volumes:
+      - ./logs:/app/logs
+      - ./src/main/resources:/app/resources:ro
+
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: auth_service_dev
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: dev_password
+    ports:
+      - "3307:3306"  # Puerto diferente para evitar conflictos
