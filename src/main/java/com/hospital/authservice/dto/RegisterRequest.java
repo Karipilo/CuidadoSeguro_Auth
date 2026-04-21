@@ -29,8 +29,7 @@ public class RegisterRequest {
     @Schema(description = "Contraseña", example = "Password123!")
     @NotBlank(message = "La contraseña es obligatoria")
     @Size(min = 8, max = 100, message = "La contraseña debe tener entre 8 y 100 caracteres")
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]", 
-             message = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial")
+    //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]", message = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial")
     private String password;
     
     @Schema(description = "Email", example = "juan.perez@hospital.com")
