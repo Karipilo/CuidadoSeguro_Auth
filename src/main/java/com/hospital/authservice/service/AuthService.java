@@ -168,8 +168,6 @@ public class AuthService {
         // Encriptar contraseña
         usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         
-        // Guardar entidades
-        usuarioRepository.save(usuario);
         
         // Validaciones específicas según tipo
         if ("MEDICO".equals(request.getTipoUsuario())) {
@@ -178,11 +176,16 @@ public class AuthService {
             }
         }
         
-        if ("PACIENTE".equals(request.getTipoUsuario())) {
-            if (pacienteRepository.existsByHistoriaClinica(request.getHistoriaClinica())) {
-                throw new AuthException("La historia clínica ya está registrada");
-            }
+        if ("PACIENTE".equals(request.getTipoUsuario())
+                && request.getHistoriaClinica() != null
+                && pacienteRepository.existsByHistoriaClinica(request.getHistoriaClinica())) {
+            
+            throw new AuthException("La historia clínica ya está registrada");
         }
+        
+
+        // Guardar entidades
+        usuarioRepository.save(usuario);
         
         // Guardar consentimiento de términos y condiciones
         if (request.getVersionTerminos() != null) {

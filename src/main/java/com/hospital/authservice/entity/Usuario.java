@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
+
 public class Usuario implements UserDetails {
     
     @Id
@@ -58,7 +60,7 @@ public class Usuario implements UserDetails {
     @Builder.Default
     private Integer intentosFallidos = 0;
     
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
     
