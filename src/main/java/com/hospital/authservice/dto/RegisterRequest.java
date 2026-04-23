@@ -108,6 +108,13 @@ public class RegisterRequest {
     
     @Schema(description = "Horario de trabajo", example = "Lunes a Viernes 8:00-14:00")
     private String horarioTrabajo;
+
+    //Campos específicos para Tutor:
+    @Schema(description = "Parentezco", example = "Tutor Legal")
+    private Integer parentezco;
+
+    @Schema(description = "Rut de los pacientes del tutor",example = "12345678-9")
+    private List<String> pacientesRuts;
     
     // Campos específicos para paciente
     @Schema(description = "Historia clínica", example = "HC-001234")

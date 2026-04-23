@@ -79,6 +79,9 @@ public class Usuario implements UserDetails {
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Paciente paciente;
     
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Tutor tutor;
+
     @PreUpdate
     protected void onUpdate() {
         fechaActualizacion = LocalDateTime.now();

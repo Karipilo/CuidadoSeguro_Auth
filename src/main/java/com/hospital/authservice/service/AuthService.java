@@ -37,27 +37,28 @@ public class AuthService {
     private final PersonaRepository personaRepository;
     private final MedicoRepository medicoRepository;
     private final PacienteRepository pacienteRepository;
+    private final TutorRepository tutorRepository;
     private final UserFactory userFactory;
     private final ConsentimientoRepository consentimientoRepository;
     private final TerminosCondicionesRepository terminosCondicionesRepository;
     
     @Transactional
     public boolean validateToken(String token) {
-    try {
-        // Verifica si el token está en blacklist
-        boolean isBlacklisted = tokenBlacklistRepository.existsByToken(token);
-        if (isBlacklisted) {
+        try {
+            // Verifica si el token está en blacklist
+            boolean isBlacklisted = tokenBlacklistRepository.existsByToken(token);
+            if (isBlacklisted) {
+                return false;
+            }
+
+            // Validar token con JWT
+            return jwtService.isTokenValid(token);
+
+        } catch (Exception e) {
+            log.warn("Token inválido: {}", e.getMessage());
             return false;
         }
-
-        // Validar token con JWT
-        return jwtService.isTokenValid(token);
-
-    } catch (Exception e) {
-        log.warn("Token inválido: {}", e.getMessage());
-        return false;
     }
-}
 
     @Transactional
     public AuthResponse login(LoginRequest request) {
@@ -168,6 +169,23 @@ public class AuthService {
         // Encriptar contraseña
         usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         
+        if ("TUTOR".equals(request.getTipoUsuario())) {
+            String ret = "";
+            for (int i =0; i<request.getPacientesRuts().size();i++){
+                if (!(personaRepository.existsByNumeroDocumento(request.getPacientesRuts().get(i)))){
+                    ret = ret + "Persona ("+(i+1)+") No existe en los registros \r\n";
+                    i = request.getPacientesRuts().size();
+                }
+                
+            }
+
+            if (!ret.equals("")){
+                throw new AuthException(ret);
+            }else{
+                //tutorRepository.save(null)
+            }
+            
+        }
         
         // Validaciones específicas según tipo
         if ("MEDICO".equals(request.getTipoUsuario())) {

@@ -1,6 +1,7 @@
 package com.hospital.authservice.factory;
 
 import com.hospital.authservice.dto.RegisterRequest;
+import com.hospital.authservice.entity.Tutor;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class UserFactory {
     private final AdminUser adminUser;
     private final MedicoUser medicoUser;
     private final PacienteUser pacienteUser;
+    private final TutorUser tutorUser;
 
     private final Map<String, User> userCreators = new HashMap<>();
 
@@ -27,6 +29,7 @@ public class UserFactory {
         userCreators.put("ADMIN", adminUser);
         userCreators.put("MEDICO", medicoUser);
         userCreators.put("PACIENTE", pacienteUser);
+        userCreators.put("TUTOR", tutorUser);
     }
 
     public User createUser(String tipoUsuario) {

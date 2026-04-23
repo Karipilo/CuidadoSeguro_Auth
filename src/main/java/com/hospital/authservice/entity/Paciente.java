@@ -65,6 +65,10 @@ public class Paciente {
     @JoinColumn(name = "usuario_id", nullable = false, unique = true)
     private Usuario usuario;
     
+    @ManyToOne // o OneToOne, depende de tu diseño
+    @JoinColumn(name = "persona_id")
+    private Persona persona;
+
     @PreUpdate
     protected void onUpdate() {
         fechaActualizacion = LocalDateTime.now();
