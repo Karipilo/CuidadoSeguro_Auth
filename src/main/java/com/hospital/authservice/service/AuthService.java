@@ -134,7 +134,15 @@ public class AuthService {
             throw new AuthException("Credenciales inválidas");
         }
     }
-    
+
+    public static boolean tieneCaracterEspecial(String s) {
+        if (s == null || s.isEmpty()) {
+            return false;
+        }
+        // Coincide si hay al menos un carácter que no sea letra ni número
+        return !s.matches("[A-Za-z0-9 ]*"); // El espacio está permitido aquí
+    }
+
     @Transactional
     public AuthResponse register(RegisterRequest request) {
         log.info("Intento de registro para usuario: {}", request.getUsername());
@@ -166,9 +174,60 @@ public class AuthService {
         com.hospital.authservice.factory.User userCreator = userFactory.createUser(request.getTipoUsuario());
         Usuario usuario = userCreator.crearUsuario(request);
         
-        // Encriptar contraseña
-        usuario.setPassword(passwordEncoder.encode(request.getPassword()));
+        if (request.getPassword().chars().anyMatch(Character::isLowerCase) &&
+            request.getPassword().chars().anyMatch(Character::isUpperCase) &&
+            request.getPassword().chars().anyMatch(Character::isDigit) &&
+            tieneCaracterEspecial(request.getPassword())){
+
+                // Encriptar contraseña
+                usuario.setPassword(passwordEncoder.encode(request.getPassword()));
         
+        }else{
+            String ret = "La contraseña debe tener al menos: ";
+
+            if (!request.getPassword().chars().anyMatch(Character::isLowerCase)){
+                ret = ret + "1 letra minúscula";
+            }
+
+
+            if (!request.getPassword().chars().anyMatch(Character::isUpperCase)){
+                if (ret.contains("1")){
+                    ret = ret + ",";
+                }
+                ret = ret + "1 letra mayúscula";
+            }
+
+            
+
+            if (!request.getPassword().chars().anyMatch(Character::isDigit)){
+                if (ret.contains("1")){
+                    ret = ret + ",";
+                }
+                ret = ret + "1 número";
+            }
+
+            if (!tieneCaracterEspecial(request.getPassword().toString())){
+                if (ret.contains("1")){
+                    ret = ret + ",";
+                }
+                ret = ret + "1 carácter especial";
+            }
+
+            
+            ret = ret + ".";
+            
+
+            throw new AuthException(ret);
+        }
+        
+        if (request.getPassword().toString().length()<8){
+            throw new AuthException("La contraseña debe tener al menos 8 carácteres.");
+        }
+
+        if (request.getPassword().toString().length()>100){
+            throw new AuthException("La contraseña debe tener menos de 101 carácteres, ahora tiene: "+request.getPassword().toString()+" carácteres.");
+        }
+
         if ("TUTOR".equals(request.getTipoUsuario())) {
             String ret = "";
             for (int i =0; i<request.getPacientesRuts().size();i++){
