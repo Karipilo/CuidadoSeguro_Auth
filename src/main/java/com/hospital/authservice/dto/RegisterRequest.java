@@ -141,9 +141,7 @@ public class RegisterRequest {
     @Schema(description = "Teléfono de emergencia", example = "+51987654322")
     private String telefonoEmergencia;
     
-    @Schema(description = "Seguro médico", example = "EsSalud")
-    private String seguroMedico;
+    @Schema(description = "Prevision", example = "AFP")
+    private String prevision;
     
-    @Schema(description = "Número de póliza", example = "POL-001234")
-    private String numeroPoliza;
 }

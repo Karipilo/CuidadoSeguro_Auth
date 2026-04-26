@@ -231,3 +231,46 @@ ___________________________________________________________
   "seguroMedico": "N/A",
   "numeroPoliza": "N/A"
 }
+
+{
+  "username": "dr.gabriel.soto",
+  "password": "MedicoPass123!",
+  "email": "gabriel.soto@hospital.com",
+  "tipoUsuario": "MEDICO",
+  "nombres": "Gabriel Antonio",
+  "apellidos": "Soto Herrera",
+  "tipoDocumento": "DNI",
+  "numeroDocumento": "22334455",
+  "fechaNacimiento": "1980-08-12",
+  "genero": "M",
+  "telefono": "+56988770011",
+  "direccion": "Av. Libertad 456, Viña del Mar",
+  "roles": [
+    "ROLE_MEDICO"
+  ],
+  "aceptaTerminos": true,
+  "versionTerminos": 1,
+
+  "numeroLicencia": "CMP-556677",
+  "especialidad": "Medicina Interna",
+  "subespecialidad": "Endocrinología",
+  "universidad": "Pontificia Universidad Católica de Chile",
+  "anioGraduacion": 2006,
+  "experienciaAnios": 18,
+  "consultorio": "402",
+  "horarioTrabajo": "Lunes a Viernes 08:00-16:00",
+
+  "parentezco": 0,
+  "pacientesRuts": [],
+
+  "historiaClinica": "N/A",
+  "grupoSanguineo": "N/A",
+  "factorRh": "N/A",
+  "alergias": "N/A",
+  "enfermedadesCronicas": "N/A",
+  "medicamentosActuales": "N/A",
+  "contactoEmergencia": "María Herrera",
+  "telefonoEmergencia": "+56999881122",
+  "seguroMedico": "N/A",
+  "numeroPoliza": "N/A"
+}

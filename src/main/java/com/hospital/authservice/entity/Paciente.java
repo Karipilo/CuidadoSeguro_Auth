@@ -44,11 +44,10 @@ public class Paciente {
     @Column(name = "telefono_emergencia", length = 20)
     private String telefonoEmergencia;
     
-    @Column(name = "seguro_medico", length = 100)
-    private String seguroMedico;
+    @Column(name = "prevision", length = 100)
+    private String prevision;
     
-    @Column(name = "numero_poliza", length = 50)
-    private String numeroPoliza;
+    
     
     @Column(name = "activo", nullable = false)
     @Builder.Default
