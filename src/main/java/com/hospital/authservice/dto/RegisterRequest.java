@@ -28,7 +28,7 @@ public class RegisterRequest {
     
     @Schema(description = "Contraseña", example = "Password123!")
     @NotBlank(message = "La contraseña es obligatoria")
-    @Size(min = 8, max = 100, message = "La contraseña debe tener entre 8 y 100 caracteres")
+    //@Size(min = 8, max = 100, message = "La contraseña debe tener entre 8 y 100 caracteres")
     //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]", message = "La contraseña debe contener al menos una letra mayúscula, una minúscula, un número y un carácter especial")
     private String password;
     
@@ -108,6 +108,13 @@ public class RegisterRequest {
     
     @Schema(description = "Horario de trabajo", example = "Lunes a Viernes 8:00-14:00")
     private String horarioTrabajo;
+
+    //Campos específicos para Tutor:
+    @Schema(description = "Parentezco", example = "Tutor Legal")
+    private Integer parentezco;
+
+    @Schema(description = "Rut de los pacientes del tutor",example = "12345678-9")
+    private List<String> pacientesRuts;
     
     // Campos específicos para paciente
     @Schema(description = "Historia clínica", example = "HC-001234")
@@ -134,9 +141,7 @@ public class RegisterRequest {
     @Schema(description = "Teléfono de emergencia", example = "+51987654322")
     private String telefonoEmergencia;
     
-    @Schema(description = "Seguro médico", example = "EsSalud")
-    private String seguroMedico;
+    @Schema(description = "Prevision", example = "AFP")
+    private String prevision;
     
-    @Schema(description = "Número de póliza", example = "POL-001234")
-    private String numeroPoliza;
 }

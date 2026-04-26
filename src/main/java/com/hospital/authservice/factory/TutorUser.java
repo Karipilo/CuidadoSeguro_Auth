@@ -1,31 +1,35 @@
 package com.hospital.authservice.factory;
 
 import com.hospital.authservice.dto.RegisterRequest;
-import com.hospital.authservice.entity.Paciente;
-import com.hospital.authservice.entity.Persona;
-import com.hospital.authservice.entity.Role;
-import com.hospital.authservice.entity.Usuario;
+import com.hospital.authservice.entity.*;
+import com.hospital.authservice.repository.PacienteRepository;
 import com.hospital.authservice.repository.RoleRepository;
+import com.hospital.authservice.repository.TutorRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class PacienteUser implements User {
-    
+public class TutorUser implements User {
+
     private final RoleRepository roleRepository;
-    
+    private final PacienteRepository pacienteRepository;
+    private final TutorRepository tutorRepository;
+
     @Override
     public Usuario crearUsuario(RegisterRequest request) {
-        log.info("Creando usuario de tipo PACIENTE para: {}", request.getUsername());
-        
+
+        log.info("Creando usuario de tipo TUTOR para: {}", request.getUsername());
+
         validarDatosEspecificos(request);
+
         
         Persona persona = Persona.builder()
                 .nombres(request.getNombres())
@@ -39,6 +43,7 @@ public class PacienteUser implements User {
                 .direccion(request.getDireccion())
                 .activo(true)
                 .build();
+
         
         Set<Role> roles = new HashSet<>();
         request.getRoles().forEach(roleName -> {
@@ -46,7 +51,7 @@ public class PacienteUser implements User {
                     .orElseThrow(() -> new RuntimeException("Rol no encontrado: " + roleName));
             roles.add(role);
         });
-        
+
         Usuario usuario = Usuario.builder()
                 .username(request.getUsername())
                 .password(request.getPassword())
@@ -56,47 +61,49 @@ public class PacienteUser implements User {
                 .persona(persona)
                 .roles(roles)
                 .build();
+
         
-        Paciente paciente = Paciente.builder()
-                .historiaClinica(request.getHistoriaClinica())
-                .grupoSanguineo(request.getGrupoSanguineo())
-                .factorRh(request.getFactorRh())
-                .alergias(request.getAlergias())
-                .enfermedadesCronicas(request.getEnfermedadesCronicas())
-                .medicamentosActuales(request.getMedicamentosActuales())
-                .contactoEmergencia(request.getContactoEmergencia())
-                .telefonoEmergencia(request.getTelefonoEmergencia())
-                .prevision(request.getPrevision())
-                .activo(true)
-                .fechaCreacion(LocalDateTime.now())
+        List<String> pacientes = request.getPacientesRuts();
+
+        if (pacientes.isEmpty()) {
+            throw new RuntimeException("No se encontraron pacientes con los RUTs proporcionados");
+        }
+
+        Tutor tutor = Tutor.builder()
                 .usuario(usuario)
+                .parentezco(request.getParentezco())
+                .pacientes(pacientes.toString())
                 .build();
-        
+
         persona.setUsuario(usuario);
-        usuario.setPaciente(paciente);
-        
+        usuario.setTutor(tutor);
+
         return usuario;
     }
-    
+
     @Override
     public void validarDatosEspecificos(RegisterRequest request) {
-        // Validaciones específicas para pacientes
-        if (request.getHistoriaClinica() == null || request.getHistoriaClinica().trim().isEmpty()) {
-            throw new IllegalArgumentException("La historia clínica es obligatoria para pacientes");
+
+        if (request.getParentezco() == null) {
+            throw new IllegalArgumentException("El parentezco es obligatorio");
         }
-        
-        boolean tieneRolePaciente = request.getRoles().stream()
-                .anyMatch(role -> role.equals("ROLE_PACIENTE"));
-        
-        if (!tieneRolePaciente) {
-            throw new IllegalArgumentException("El usuario paciente debe tener el rol ROLE_PACIENTE");
+
+        if (request.getPacientesRuts() == null || request.getPacientesRuts().isEmpty()) {
+            throw new IllegalArgumentException("Debe asociar al menos un paciente");
         }
-        
-        log.debug("Validaciones específicas de PACIENTE pasadas para usuario: {}", request.getUsername());
+
+        boolean tieneRoleTutor = request.getRoles().stream()
+                .anyMatch(role -> role.equals("ROLE_TUTOR"));
+
+        if (!tieneRoleTutor) {
+            throw new IllegalArgumentException("Debe incluir ROLE_TUTOR");
+        }
+
+        log.debug("Validaciones de TUTOR correctas para: {}", request.getUsername());
     }
-    
+
     @Override
     public String getTipoUsuario() {
-        return "PACIENTE";
+        return "TUTOR";
     }
 }
