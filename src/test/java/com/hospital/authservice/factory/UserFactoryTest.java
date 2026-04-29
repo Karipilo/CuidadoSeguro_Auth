@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -22,7 +23,7 @@ class UserFactoryTest {
     private AdminUser adminUser;
     
     @Mock
-    private MedicoUser medicoUser;
+    private ProfesionalUser profesionalUser;
     
     @Mock
     private PacienteUser pacienteUser;
@@ -63,17 +64,17 @@ class UserFactoryTest {
     }
     
     @Test
-    void testCreateMedicoUser() {
+    void testCreateprofesionalUser() {
         // Given
-        Usuario expectedUsuario = Usuario.builder().id(2L).username("medico").build();
-        when(medicoUser.crearUsuario(any(RegisterRequest.class))).thenReturn(expectedUsuario);
+        Usuario expectedUsuario = Usuario.builder().id(2L).username("profesional").build();
+        when(profesionalUser.crearUsuario(any(RegisterRequest.class))).thenReturn(expectedUsuario);
         
         // When
-        User user = userFactory.createUser("MEDICO");
+        User user = userFactory.createUser("PROFESIONAL");
         
         // Then
         assertNotNull(user);
-        assertEquals("MEDICO", user.getTipoUsuario());
+        assertEquals("PROFESIONAL", user.getTipoUsuario());
         assertEquals(expectedUsuario, user.crearUsuario(registerRequest));
     }
     
@@ -107,7 +108,8 @@ class UserFactoryTest {
         assertNotNull(supportedTypes);
         assertEquals(3, supportedTypes.size());
         assertTrue(supportedTypes.contains("ADMIN"));
-        assertTrue(supportedTypes.contains("MEDICO"));
+        assertTrue(supportedTypes.contains("PROFESIONAL"));
+        assertTrue(supportedTypes.contains("TUTOR"));
         assertTrue(supportedTypes.contains("PACIENTE"));
     }
     
@@ -115,7 +117,8 @@ class UserFactoryTest {
     void testIsSupportedUserType() {
         // When & Then
         assertTrue(userFactory.isSupportedUserType("ADMIN"));
-        assertTrue(userFactory.isSupportedUserType("MEDICO"));
+        assertTrue(userFactory.isSupportedUserType("PROFESIONAL"));
+        assertTrue(userFactory.isSupportedUserType("TUTOR"));
         assertTrue(userFactory.isSupportedUserType("PACIENTE"));
         assertTrue(userFactory.isSupportedUserType("admin")); // Case insensitive
         assertFalse(userFactory.isSupportedUserType("UNSUPPORTED"));

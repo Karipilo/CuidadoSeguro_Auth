@@ -22,10 +22,6 @@ public class Tutor {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    
-    @Column(nullable = false)
-    private Integer parentezco;
-
     @Column(nullable = false)
     private String pacientes;
 }

@@ -74,7 +74,7 @@ public class Usuario implements UserDetails {
     private Set<Role> roles = new HashSet<>();
     
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Medico medico;
+    private Profesional profesional;
     
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Paciente paciente;

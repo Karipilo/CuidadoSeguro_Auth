@@ -56,7 +56,7 @@ class AuthServiceTest {
     private PersonaRepository personaRepository;
     
     @Mock
-    private MedicoRepository medicoRepository;
+    private ProfesionalRepository profesionalRepository;
     
     @Mock
     private PacienteRepository pacienteRepository;

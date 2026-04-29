@@ -52,10 +52,13 @@ Microservicio de autenticación completo con JWT, refresh tokens y blacklist par
 - Acceso completo al sistema
 - Roles: `ROLE_ADMIN`
 
-### Médico
-- Gestión de pacientes y citas
+### Profesional
 - Información profesional: licencia, especialidad, universidad
-- Roles: `ROLE_MEDICO`
+- Roles: `ROLE_PROFESIONAL`
+
+### Tutor:
+- Rol de tutor de un paciente.
+- Roles: `ROLE_TUTOR`
 
 ### Paciente
 - Acceso a sus datos médicos

@@ -18,7 +18,7 @@ import java.util.Set;
 public class UserFactory {
 
     private final AdminUser adminUser;
-    private final MedicoUser medicoUser;
+    private final ProfesionalUser profesionalUser;
     private final PacienteUser pacienteUser;
     private final TutorUser tutorUser;
 
@@ -27,7 +27,7 @@ public class UserFactory {
     @PostConstruct
     public void init() {
         userCreators.put("ADMIN", adminUser);
-        userCreators.put("MEDICO", medicoUser);
+        userCreators.put("PROFESIONAL", profesionalUser);
         userCreators.put("PACIENTE", pacienteUser);
         userCreators.put("TUTOR", tutorUser);
     }

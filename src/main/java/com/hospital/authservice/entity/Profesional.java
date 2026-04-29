@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "medicos")
+@Table(name = "profesionales")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Medico {
+public class Profesional {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,11 +39,11 @@ public class Medico {
     @Builder.Default
     private Integer experienciaAnios = 0;
     
-    @Column(name = "consultorio", length = 50)
-    private String consultorio;
+    @Column(name = "institucion", length = 50)
+    private String institucion;
     
-    @Column(name = "horario_trabajo", length = 200)
-    private String horarioTrabajo;
+    @Column(name = "horas_semanales", length = 200)
+    private String horasSemanales;
     
     @Column(name = "activo", nullable = false)
     @Builder.Default

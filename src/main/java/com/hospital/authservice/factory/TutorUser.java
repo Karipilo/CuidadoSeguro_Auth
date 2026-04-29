@@ -71,7 +71,6 @@ public class TutorUser implements User {
 
         Tutor tutor = Tutor.builder()
                 .usuario(usuario)
-                .parentezco(request.getParentezco())
                 .pacientes(pacientes.toString())
                 .build();
 
@@ -84,9 +83,6 @@ public class TutorUser implements User {
     @Override
     public void validarDatosEspecificos(RegisterRequest request) {
 
-        if (request.getParentezco() == null) {
-            throw new IllegalArgumentException("El parentezco es obligatorio");
-        }
 
         if (request.getPacientesRuts() == null || request.getPacientesRuts().isEmpty()) {
             throw new IllegalArgumentException("Debe asociar al menos un paciente");
