@@ -37,7 +37,7 @@ public class RegisterRequest {
     @Email(message = "El formato del email no es válido")
     private String email;
     
-    @Schema(description = "Tipo de usuario", example = "PACIENTE", allowableValues = {"ADMIN", "MEDICO", "PACIENTE"})
+    @Schema(description = "Tipo de usuario", example = "PACIENTE", allowableValues = {"ADMIN", "PROFESIONAL", "PACIENTE","TUTOR"})
     @NotBlank(message = "El tipo de usuario es obligatorio")
     private String tipoUsuario;
     
@@ -85,13 +85,16 @@ public class RegisterRequest {
     private Integer versionTerminos;
     
     // Campos específicos para médico
-    @Schema(description = "Número de licencia médica", example = "CMP-12345")
+    @Schema(description = "Número de licencia ", example = "CMP-12345")
     private String numeroLicencia;
     
-    @Schema(description = "Especialidad médica", example = "Cardiología")
+    @Schema(description = "Profesion", example = "Doctor")
+    private String profesion;
+
+    @Schema(description = "Especialidad", example = "Cardiología")
     private String especialidad;
     
-    @Schema(description = "Subespecialidad médica", example = "Cardiología Intervencionista")
+    @Schema(description = "Subespecialidad ", example = "Cardiología Intervencionista")
     private String subespecialidad;
     
     @Schema(description = "Universidad de graduación", example = "Universidad Nacional Mayor de San Marcos")
@@ -103,15 +106,13 @@ public class RegisterRequest {
     @Schema(description = "Años de experiencia", example = "8")
     private Integer experienciaAnios;
     
-    @Schema(description = "Consultorio", example = "201")
-    private String consultorio;
+    @Schema(description = "Institucion", example = "201")
+    private String institucion;
     
-    @Schema(description = "Horario de trabajo", example = "Lunes a Viernes 8:00-14:00")
-    private String horarioTrabajo;
+    @Schema(description = "Horas Semanales", example = "Lunes a Viernes 8:00-14:00")
+    private String horasSemanales;
 
     //Campos específicos para Tutor:
-    @Schema(description = "Parentezco", example = "Tutor Legal")
-    private Integer parentezco;
 
     @Schema(description = "Rut de los pacientes del tutor",example = "12345678-9")
     private List<String> pacientesRuts;

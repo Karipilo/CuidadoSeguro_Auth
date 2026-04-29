@@ -1,7 +1,7 @@
 package com.hospital.authservice.factory;
 
 import com.hospital.authservice.dto.RegisterRequest;
-import com.hospital.authservice.entity.Medico;
+import com.hospital.authservice.entity.Profesional;
 import com.hospital.authservice.entity.Persona;
 import com.hospital.authservice.entity.Role;
 import com.hospital.authservice.entity.Usuario;
@@ -17,13 +17,13 @@ import java.util.Set;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MedicoUser implements User {
+public class ProfesionalUser implements User {
     
     private final RoleRepository roleRepository;
     
     @Override
     public Usuario crearUsuario(RegisterRequest request) {
-        log.info("Creando usuario de tipo MEDICO para: {}", request.getUsername());
+        log.info("Creando usuario de tipo PROFESIONAL para: {}", request.getUsername());
         
         validarDatosEspecificos(request);
         
@@ -57,22 +57,22 @@ public class MedicoUser implements User {
                 .roles(roles)
                 .build();
         
-        Medico medico = Medico.builder()
+        Profesional profesional = Profesional.builder()
                 .numeroLicencia(request.getNumeroLicencia())
                 .especialidad(request.getEspecialidad())
                 .subespecialidad(request.getSubespecialidad())
                 .universidad(request.getUniversidad())
                 .anioGraduacion(request.getAnioGraduacion())
                 .experienciaAnios(request.getExperienciaAnios() != null ? request.getExperienciaAnios() : 0)
-                .consultorio(request.getConsultorio())
-                .horarioTrabajo(request.getHorarioTrabajo())
+                .institucion(request.getInstitucion())
+                .horasSemanales(request.getHorasSemanales())
                 .activo(true)
                 .fechaCreacion(LocalDateTime.now())
                 .usuario(usuario)
                 .build();
         
         persona.setUsuario(usuario);
-        usuario.setMedico(medico);
+        usuario.setProfesional(profesional);
         
         return usuario;
     }
@@ -96,18 +96,18 @@ public class MedicoUser implements User {
             throw new IllegalArgumentException("El año de graduación no es válido");
         }
         
-        boolean tieneRoleMedico = request.getRoles().stream()
-                .anyMatch(role -> role.equals("ROLE_MEDICO"));
+        boolean tieneRoleProfesional = request.getRoles().stream()
+                .anyMatch(role -> role.equals("ROLE_PROFESIONAL"));
         
-        if (!tieneRoleMedico) {
-            throw new IllegalArgumentException("El usuario médico debe tener el rol ROLE_MEDICO");
+        if (!tieneRoleProfesional) {
+            throw new IllegalArgumentException("El usuario médico debe tener el rol ROLE_PROFESIONAL");
         }
         
-        log.debug("Validaciones específicas de MEDICO pasadas para usuario: {}", request.getUsername());
+        log.debug("Validaciones específicas de PROFESIONAL pasadas para usuario: {}", request.getUsername());
     }
     
     @Override
     public String getTipoUsuario() {
-        return "MEDICO";
+        return "PROFESIONAL";
     }
 }

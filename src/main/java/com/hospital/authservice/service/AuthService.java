@@ -35,7 +35,7 @@ public class AuthService {
     private final TokenBlacklistRepository tokenBlacklistRepository;
     private final RoleRepository roleRepository;
     private final PersonaRepository personaRepository;
-    private final MedicoRepository medicoRepository;
+    private final ProfesionalRepository profesionalRepository;
     private final PacienteRepository pacienteRepository;
     private final TutorRepository tutorRepository;
     private final UserFactory userFactory;
@@ -247,9 +247,9 @@ public class AuthService {
         }
         
         // Validaciones específicas según tipo
-        if ("MEDICO".equals(request.getTipoUsuario())) {
-            if (medicoRepository.existsByNumeroLicencia(request.getNumeroLicencia())) {
-                throw new AuthException("El número de licencia ya está registrado");
+        if ("PROFESIONAL".equals(request.getTipoUsuario())) {
+            if (profesionalRepository.existsByNumeroLicencia(request.getNumeroLicencia())) {
+                throw new AuthException("El número de licencia ya está registrada");
             }
         }
         
@@ -435,11 +435,13 @@ public class AuthService {
     }
     
     private String determinarTipoUsuario(Usuario usuario) {
-        if (usuario.getMedico() != null) {
-            return "MEDICO";
+        if (usuario.getProfesional() != null) {
+            return "PROFESIONAL";
         } else if (usuario.getPaciente() != null) {
             return "PACIENTE";
-        } else {
+        } else if (usuario.getTutor() != null) {
+            return "TUTOR";
+        }else{
             return "ADMIN";
         }
     }

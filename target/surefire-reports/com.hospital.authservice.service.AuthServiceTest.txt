@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: com.hospital.authservice.service.AuthServiceTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.295 s <<< FAILURE! -- in com.hospital.authservice.service.AuthServiceTest
+com.hospital.authservice.service.AuthServiceTest.testRefreshTokenSuccess -- Time elapsed: 0.055 s <<< FAILURE!
+org.mockito.exceptions.verification.TooManyActualInvocations: 
+
+refreshTokenRepository.save(
+    <any com.hospital.authservice.entity.RefreshToken>
+);
+Wanted 1 time:
+-> at com.hospital.authservice.service.AuthServiceTest.testRefreshTokenSuccess(AuthServiceTest.java:267)
+But was 2 times:
+-> at com.hospital.authservice.service.AuthService.refreshToken(AuthService.java:342)
+-> at com.hospital.authservice.service.AuthService.refreshToken(AuthService.java:354)
+
+
+	at com.hospital.authservice.service.AuthServiceTest.testRefreshTokenSuccess(AuthServiceTest.java:267)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+

@@ -92,7 +92,8 @@ class AuthServiceIntegrationTest {
 
     private void createRoles() {
         roleRepository.save(Role.builder().nombre("ROLE_ADMIN").descripcion("Admin").activo(true).build());
-        roleRepository.save(Role.builder().nombre("ROLE_MEDICO").descripcion("Medico").activo(true).build());
+        roleRepository.save(Role.builder().nombre("ROLE_PROFESIONAL").descripcion("Profesional").activo(true).build());
+        roleRepository.save(Role.builder().nombre("ROLE_TUTOR").descripcion("Tutor").activo(true).build());
         roleRepository.save(Role.builder().nombre("ROLE_PACIENTE").descripcion("Paciente").activo(true).build());
     }
 
