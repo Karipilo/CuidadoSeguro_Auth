@@ -1,5 +1,6 @@
 package com.hospital.authservice.service;
 
+import static org.mockito.ArgumentMatchers.anyMap;
 import com.hospital.authservice.dto.*;
 import com.hospital.authservice.entity.*;
 import com.hospital.authservice.exception.AuthException;
@@ -146,8 +147,11 @@ class AuthServiceTest {
         when(authentication.getPrincipal()).thenReturn(usuario);
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
                 .thenReturn(authentication);
-        when(jwtService.generateToken(any(UserDetails.class))).thenReturn("access-token");
-        when(jwtService.generateRefreshToken(any(UserDetails.class))).thenReturn("refresh-token");
+        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("access-token");
+
+        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("refresh-token");
         when(jwtService.getJwtExpiration()).thenReturn(900L);
         when(jwtService.getRefreshExpiration()).thenReturn(604800L);
         
@@ -189,9 +193,11 @@ class AuthServiceTest {
         when(userCreator.crearUsuario(registerRequest)).thenReturn(usuario);
         when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
         when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuario);
-        when(jwtService.generateToken(any(UserDetails.class))).thenReturn("access-token");
-        when(jwtService.generateRefreshToken(any(UserDetails.class))).thenReturn("refresh-token");
-        when(jwtService.getJwtExpiration()).thenReturn(900L);
+        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("access-token");
+
+        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("refresh-token");when(jwtService.getJwtExpiration()).thenReturn(900L);
         when(jwtService.getRefreshExpiration()).thenReturn(604800L);
         
         // When
@@ -250,9 +256,11 @@ class AuthServiceTest {
         
         when(refreshTokenRepository.findByToken("refresh-token")).thenReturn(Optional.of(refreshToken));
         when(jwtService.generateToken(any(UserDetails.class))).thenReturn("new-access-token");
-        when(jwtService.generateRefreshToken(any(UserDetails.class))).thenReturn("new-refresh-token");
-        when(jwtService.getJwtExpiration()).thenReturn(900L);
-        
+        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("new-access-token");
+
+        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
+        .thenReturn("new-refresh-token");
         // When
         AuthResponse response = authService.refreshToken(refreshRequest);
         

@@ -37,14 +37,14 @@ Microservicio de autenticación completo con JWT, refresh tokens y blacklist par
 ## Endpoints
 
 ### Autenticación
-- `POST /api/auth/login` - Iniciar sesión
-- `POST /api/auth/register` - Registrar nuevo usuario
-- `POST /api/auth/refresh` - Refrescar token
-- `POST /api/auth/logout` - Cerrar sesión
+- `POST /auth/login` - Iniciar sesión
+- `POST /auth/register` - Registrar nuevo usuario
+- `POST /auth/refresh` - Refrescar token
+- `POST /auth/logout` - Cerrar sesión
 
 ### Utilitarios
-- `GET /api/auth/validate` - Validar token
-- `GET /api/auth/health` - Health check
+- `GET /auth/validate` - Validar token
+- `GET /auth/health` - Health check
 
 ## Tipos de Usuario
 
@@ -130,7 +130,7 @@ La documentación está disponible en:
 
 ### 1. Login
 ```bash
-curl -X POST http://localhost:8080/api/auth/login \
+curl -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "username": "juan.perez",
@@ -140,7 +140,7 @@ curl -X POST http://localhost:8080/api/auth/login \
 
 ### 2. Registro
 ```bash
-curl -X POST http://localhost:8080/api/auth/register \
+curl -X POST http://localhost:8080/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "username": "nuevo.usuario",
@@ -159,7 +159,7 @@ curl -X POST http://localhost:8080/api/auth/register \
 
 ### 3. Refresh Token
 ```bash
-curl -X POST http://localhost:8080/api/auth/refresh \
+curl -X POST http://localhost:8080/auth/refresh \
   -H "Content-Type: application/json" \
   -d '{
     "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
@@ -168,7 +168,7 @@ curl -X POST http://localhost:8080/api/auth/refresh \
 
 ### 4. Logout
 ```bash
-curl -X POST http://localhost:8080/api/auth/logout \
+curl -X POST http://localhost:8080/auth/logout \
   -H "Content-Type: application/json" \
   -d '{
     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -196,7 +196,7 @@ Authorization: Bearer <access_token>
 
 ### Health Checks
 - Actuator: `/actuator/health`
-- Custom: `/api/auth/health`
+- Custom: `/auth/health`
 
 ### Métricas
 - Circuit Breaker status
