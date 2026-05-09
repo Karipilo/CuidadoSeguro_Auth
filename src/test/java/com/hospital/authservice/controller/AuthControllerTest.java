@@ -46,7 +46,7 @@ class AuthControllerTest {
         when(authService.login(any(LoginRequest.class))).thenReturn(response);
         
         // When & Then
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
@@ -68,7 +68,7 @@ class AuthControllerTest {
         when(authService.login(any(LoginRequest.class))).thenThrow(new RuntimeException("Credenciales inválidas"));
         
         // When & Then
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isUnauthorized());
@@ -100,7 +100,7 @@ class AuthControllerTest {
         when(authService.register(any(RegisterRequest.class))).thenReturn(response);
         
         // When & Then
-        mockMvc.perform(post("/api/auth/register")
+        mockMvc.perform(post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
@@ -122,7 +122,7 @@ class AuthControllerTest {
         when(authService.register(any(RegisterRequest.class))).thenThrow(new RuntimeException("Datos inválidos"));
         
         // When & Then
-        mockMvc.perform(post("/api/auth/register")
+        mockMvc.perform(post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isBadRequest());
@@ -146,7 +146,7 @@ class AuthControllerTest {
         when(authService.refreshToken(any(RefreshRequest.class))).thenReturn(response);
         
         // When & Then
-        mockMvc.perform(post("/api/auth/refresh")
+        mockMvc.perform(post("/auth/refresh")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
@@ -165,7 +165,7 @@ class AuthControllerTest {
         when(authService.refreshToken(any(RefreshRequest.class))).thenThrow(new RuntimeException("Refresh token inválido"));
         
         // When & Then
-        mockMvc.perform(post("/api/auth/refresh")
+        mockMvc.perform(post("/auth/refresh")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isUnauthorized());
@@ -183,7 +183,7 @@ class AuthControllerTest {
         when(authService.logout(any(LogoutRequest.class))).thenReturn(response);
         
         // When & Then
-        mockMvc.perform(post("/api/auth/logout")
+        mockMvc.perform(post("/auth/logout")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
@@ -197,7 +197,7 @@ class AuthControllerTest {
         when(authService.logout(any(LogoutRequest.class))).thenThrow(new RuntimeException("Error en logout"));
         
         // When & Then
-        mockMvc.perform(post("/api/auth/logout")
+        mockMvc.perform(post("/auth/logout")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{}"))
                 .andExpect(status().isBadRequest());
@@ -206,7 +206,7 @@ class AuthControllerTest {
     @Test
     void testValidateTokenSuccess() throws Exception {
         // When & Then
-        mockMvc.perform(get("/api/auth/validate")
+        mockMvc.perform(get("/auth/validate")
                         .param("token", "valid-token"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.success").value(true))
@@ -217,7 +217,7 @@ class AuthControllerTest {
     @Test
     void testValidateTokenInvalid() throws Exception {
         // When & Then
-        mockMvc.perform(get("/api/auth/validate")
+        mockMvc.perform(get("/auth/validate")
                         .param("token", "invalid-token"))
                 .andExpect(status().isUnauthorized())
                 .andExpect(jsonPath("$.success").value(false))
@@ -227,7 +227,7 @@ class AuthControllerTest {
     @Test
     void testHealthCheck() throws Exception {
         // When & Then
-        mockMvc.perform(get("/api/auth/health"))
+        mockMvc.perform(get("/auth/health"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.success").value(true))
                 .andExpect(jsonPath("$.data").value("Auth service is running"))

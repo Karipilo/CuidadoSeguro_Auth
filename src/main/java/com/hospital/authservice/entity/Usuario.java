@@ -9,6 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.hospital.authservice.utils.CryptoConverter;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
@@ -30,13 +32,17 @@ public class Usuario implements UserDetails {
     private Long id;
     
     @Column(name = "username", nullable = false, unique = true, length = 50)
+    @Convert(converter = CryptoConverter.class)
     private String username;
     
     @Column(name = "password", nullable = false)
     private String password;
     
     @Column(name = "email", nullable = false, unique = true, length = 100)
+    @Convert(converter = CryptoConverter.class)
     private String email;
+
+    
     
     @Column(name = "activo", nullable = false)
     @Builder.Default

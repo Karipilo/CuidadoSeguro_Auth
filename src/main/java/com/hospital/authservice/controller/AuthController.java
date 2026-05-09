@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 @Tag(name = "Autenticación", description = "Gestión de autenticación y tokens JWT")
 public class AuthController {
@@ -88,15 +88,30 @@ public class AuthController {
     // ===================== VALIDATE =====================
 
     @GetMapping("/validate")
-    @Operation(summary = "Validar token")
     public ResponseEntity<ApiResponseDto<Boolean>> validate(
-            @Parameter(description = "JWT a validar")
-            @RequestParam String token) {
+            @RequestHeader("Authorization") String authHeader) {
 
-        boolean isValid = authService.validateToken(token);
 
+        String token = authHeader;
+
+        if (authHeader.startsWith("Bearer ")) {
+            token = authHeader.substring(7).trim();
+        }
+        boolean valido = authService.validateToken(token);
+
+        if (!valido) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                    ApiResponseDto.error("Token inválido o expirado")
+            );
+
+            /*
+            return ResponseEntity.ok().body(
+                    ApiResponseDto.error("Token inválido o expirado")
+            );
+             */
+        }
         return ResponseEntity.ok(
-                ApiResponseDto.success(isValid, "Resultado de validación")
+                ApiResponseDto.success(valido, "Token válido")
         );
     }
 

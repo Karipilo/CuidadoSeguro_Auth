@@ -1,6 +1,8 @@
 package com.hospital.authservice.security;
 
 import com.hospital.authservice.repository.UsuarioRepository;
+import com.hospital.authservice.utils.CryptoUtil;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,15 +18,14 @@ public class CustomUserDetailsService implements UserDetailsService {
     
     private final UsuarioRepository usuarioRepository;
     
+    
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.debug("Cargando usuario por username: {}", username);
-        
-        return usuarioRepository.findUsuarioActivoByUsername(username)
-                .orElseThrow(() -> {
-                    log.warn("Usuario no encontrado o inactivo: {}", username);
-                    return new UsernameNotFoundException("Usuario no encontrado: " + username);
-                });
+    public UserDetails loadUserByUsername(String username) {
+
+        String encryptedUsername = CryptoUtil.encrypt(username);
+
+        return usuarioRepository.findByUsername(encryptedUsername)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
     }
 }

@@ -6,6 +6,8 @@ import com.hospital.authservice.exception.AuthException;
 import com.hospital.authservice.factory.UserFactory;
 import com.hospital.authservice.repository.*;
 import com.hospital.authservice.security.JwtService;
+import com.hospital.authservice.utils.CryptoUtil;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -63,7 +67,7 @@ public class AuthService {
     @Transactional
     public AuthResponse login(LoginRequest request) {
         log.info("Intento de login para usuario: {}", request.getUsername());
-        
+
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -71,39 +75,64 @@ public class AuthService {
                             request.getPassword()
                     )
             );
-            
+
             Usuario usuario = (Usuario) authentication.getPrincipal();
-            
+
             // Actualizar último login
             usuarioRepository.actualizarUltimoLogin(usuario.getId(), LocalDateTime.now());
-            
+
             // Generar tokens
-            String accessToken = jwtService.generateToken(usuario);
-            String refreshToken = jwtService.generateRefreshToken(usuario);
-            
+            Map<String, Object> accessClaims = new HashMap<>();
+            Map<String, Object> refreshClaims = new HashMap<>();
+
+            String accessToken = jwtService.generateToken(
+                    accessClaims,
+                    usuario,
+                    usuario.getEmail()
+            );
+
+            String refreshToken = jwtService.generateRefreshToken(
+                    refreshClaims,
+                    usuario,
+                    usuario.getEmail()
+            );
+
             // Guardar refresh token en BD
             RefreshToken refreshTokenEntity = RefreshToken.builder()
                     .token(refreshToken)
                     .usuario(usuario)
                     .fechaExpiracion(LocalDateTime.now().plusSeconds(jwtService.getRefreshExpiration()))
                     .build();
+
             refreshTokenRepository.save(refreshTokenEntity);
-            
-            // Revocar refresh tokens anteriores
+
+            // Revocar tokens anteriores
             refreshTokenRepository.revocarTodosTokensUsuario(usuario);
-            
+
+            String username;
+            String email;
+
+            try {
+                username = CryptoUtil.decrypt(usuario.getUsername());
+                email = CryptoUtil.decrypt(usuario.getEmail());
+            } catch (Exception e) {
+                log.warn("Error desencriptando datos: {}", e.getMessage());
+                username = usuario.getUsername();
+                email = usuario.getEmail();
+            }
+
             // Construir response
             AuthResponse.UserInfo userInfo = AuthResponse.UserInfo.builder()
                     .id(usuario.getId())
-                    .username(usuario.getUsername())
-                    .email(usuario.getEmail())
+                    .username(username)
+                    .email(email)
                     .nombreCompleto(usuario.getPersona().getNombres() + " " + usuario.getPersona().getApellidos())
                     .tipoUsuario(determinarTipoUsuario(usuario))
                     .roles(usuario.getAuthorities().stream()
                             .map(auth -> auth.getAuthority())
                             .toList())
                     .build();
-            
+
             AuthResponse response = AuthResponse.builder()
                     .accessToken(accessToken)
                     .refreshToken(refreshToken)
@@ -112,24 +141,36 @@ public class AuthService {
                     .userInfo(userInfo)
                     .message("Login exitoso")
                     .build();
-            
+
             log.info("Login exitoso para usuario: {}", request.getUsername());
             return response;
-            
+
         } catch (BadCredentialsException e) {
-            // Incrementar intentos fallidos
-            Optional<Usuario> usuarioOpt = usuarioRepository.findByUsername(request.getUsername());
+            /*
+            Optional<Usuario> usuarioOpt;
+            try {
+                String encryptedUsername = CryptoUtil.encrypt(request.getUsername());
+                usuarioOpt = usuarioRepository.findByUsername(encryptedUsername);
+            } catch (Exception ex) {
+                usuarioOpt = Optional.empty();
+            }
+            */
+
+            Optional<Usuario> usuarioOpt = usuarioRepository.findByUsername(
+            CryptoUtil.encrypt(request.getUsername()));
+
             if (usuarioOpt.isPresent()) {
                 Usuario usuario = usuarioOpt.get();
                 int intentos = usuario.getIntentosFallidos() + 1;
+
                 usuarioRepository.actualizarIntentosFallidos(usuario.getId(), intentos);
-                
+
                 if (intentos >= 5) {
                     usuarioRepository.bloquearUsuario(usuario.getId());
                     log.warn("Usuario bloqueado por exceder intentos fallidos: {}", request.getUsername());
                 }
             }
-            
+
             log.warn("Credenciales inválidas para usuario: {}", request.getUsername());
             throw new AuthException("Credenciales inválidas");
         }
@@ -174,6 +215,9 @@ public class AuthService {
         com.hospital.authservice.factory.User userCreator = userFactory.createUser(request.getTipoUsuario());
         Usuario usuario = userCreator.crearUsuario(request);
         
+        usuario.setUsername(CryptoUtil.encrypt(request.getUsername()));
+        usuario.setEmail(CryptoUtil.encrypt(request.getEmail()));
+
         if (request.getPassword().chars().anyMatch(Character::isLowerCase) &&
             request.getPassword().chars().anyMatch(Character::isUpperCase) &&
             request.getPassword().chars().anyMatch(Character::isDigit) &&
@@ -279,9 +323,26 @@ public class AuthService {
         }
         
         // Generar tokens para login automático
+        /*
+        //Forma antigua y estable:
         String accessToken = jwtService.generateToken(usuario);
         String refreshToken = jwtService.generateRefreshToken(usuario);
-        
+        */
+
+        Map<String, Object> accessClaims = new HashMap<>();
+        Map<String, Object> refreshClaims = new HashMap<>();
+
+        String accessToken = jwtService.generateToken(
+                accessClaims,
+                usuario,
+                usuario.getEmail()
+        );
+
+        String refreshToken = jwtService.generateRefreshToken(
+                refreshClaims,
+                usuario,
+                usuario.getEmail()
+        );
         // Guardar refresh token
         RefreshToken refreshTokenEntity = RefreshToken.builder()
                 .token(refreshToken)
@@ -293,8 +354,8 @@ public class AuthService {
         // Construir response
         AuthResponse.UserInfo userInfo = AuthResponse.UserInfo.builder()
                 .id(usuario.getId())
-                .username(usuario.getUsername())
-                .email(usuario.getEmail())
+                .username(CryptoUtil.decrypt(usuario.getUsername()))
+                .email(CryptoUtil.decrypt(usuario.getEmail()))
                 .nombreCompleto(usuario.getPersona().getNombres() + " " + usuario.getPersona().getApellidos())
                 .tipoUsuario(request.getTipoUsuario())
                 .roles(usuario.getAuthorities().stream()
@@ -342,8 +403,21 @@ public class AuthService {
         refreshTokenRepository.save(refreshTokenEntity);
         
         // Generar nuevos tokens
-        String newAccessToken = jwtService.generateToken(usuario);
-        String newRefreshToken = jwtService.generateRefreshToken(usuario);
+        
+        Map<String, Object> accessClaims = new HashMap<>();
+        Map<String, Object> refreshClaims = new HashMap<>();
+
+        String newAccessToken = jwtService.generateToken(
+                accessClaims,
+                usuario,
+                usuario.getEmail()
+        );
+
+        String newRefreshToken = jwtService.generateRefreshToken(
+                refreshClaims,
+                usuario,
+                usuario.getEmail()
+        );
         
         // Guardar nuevo refresh token
         RefreshToken newRefreshTokenEntity = RefreshToken.builder()

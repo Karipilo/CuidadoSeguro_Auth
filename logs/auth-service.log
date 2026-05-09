@@ -1,1 +1,1631 @@
-2026-05-03 16:59:26 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17h30m25s707ms40µs400ns).
+2026-05-09 14:41:18 [main] INFO  c.h.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 48516 (C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth\target\classes started by trami in C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth)
+2026-05-09 14:41:18 [main] DEBUG c.h.a.AuthServiceApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-05-09 14:41:18 [main] INFO  c.h.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-09 14:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 14:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 181 ms. Found 10 JPA repository interfaces.
+2026-05-09 14:41:25 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-09 14:41:25 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-09 14:41:25 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-05-09 14:41:25 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-09 14:41:25 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6419 ms
+2026-05-09 14:41:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-09 14:41:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-09 14:41:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-09 14:41:27 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 14:41:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-09 14:41:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e1c91cd
+2026-05-09 14:41:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-09 14:41:28 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 14:41:31 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 14:41:31 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 14:41:32 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 14:41:34 [main] DEBUG c.h.a.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-09 14:41:36 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-09 14:41:37 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@630f24a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@253dbbc8, org.springframework.security.web.context.SecurityContextHolderFilter@2c689e6d, org.springframework.security.web.header.HeaderWriterFilter@7c095332, org.springframework.web.filter.CorsFilter@12d644a6, org.springframework.security.web.authentication.logout.LogoutFilter@160b010e, com.hospital.authservice.security.JwtAuthenticationFilter@23f6a18d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7e0cbe79, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ca3923, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2e7e9897, org.springframework.security.web.session.SessionManagementFilter@1124fd8, org.springframework.security.web.access.ExceptionTranslationFilter@3ea14a58, org.springframework.security.web.access.intercept.AuthorizationFilter@18a6451f]
+2026-05-09 14:41:39 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-05-09 14:41:39 [main] INFO  c.h.a.AuthServiceApplication - Started AuthServiceApplication in 22.45 seconds (process running for 24.252)
+2026-05-09 14:41:42 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 14:41:42 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-09 14:41:42 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-05-09 14:54:16 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2026-05-09 14:54:16 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:16 [http-nio-8081-exec-1] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:16 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2026-05-09 14:54:17 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-05-09 14:54:17 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-7] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-05-09 14:54:17 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2026-05-09 14:54:17 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-1] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2026-05-09 14:54:17 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2026-05-09 14:54:17 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-8] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2026-05-09 14:54:17 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2026-05-09 14:54:17 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-2] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-05-09 14:54:17 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-3] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2026-05-09 14:54:17 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-05-09 14:54:17 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2026-05-09 14:54:17 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-6] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2026-05-09 14:54:17 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2026-05-09 14:54:17 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:17 [http-nio-8081-exec-4] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 14:54:17 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2026-05-09 14:54:21 [http-nio-8081-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 3717 ms
+2026-05-09 14:54:46 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-09 14:54:46 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 14:54:46 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-09 14:54:46 [http-nio-8081-exec-5] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-09 14:54:46 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-09 14:54:47 [http-nio-8081-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-09 14:54:48 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-09 14:54:48 [http-nio-8081-exec-5] DEBUG c.h.authservice.security.JwtService - Generando access token para usuario: pXQfRhT3T1
+2026-05-09 14:54:48 [http-nio-8081-exec-5] DEBUG c.h.authservice.security.JwtService - Generando refresh token para usuario: pXQfRhT3T1
+2026-05-09 14:54:48 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-09 14:54:48 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-09 14:54:48 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-09 16:34:03 [main] INFO  c.h.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 1780 (C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth\target\classes started by trami in C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth)
+2026-05-09 16:34:03 [main] DEBUG c.h.a.AuthServiceApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-05-09 16:34:03 [main] INFO  c.h.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-09 16:34:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 16:34:08 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 439 ms. Found 10 JPA repository interfaces.
+2026-05-09 16:34:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-09 16:34:11 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-09 16:34:11 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-05-09 16:34:11 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-09 16:34:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7216 ms
+2026-05-09 16:34:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-09 16:34:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-09 16:34:12 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-09 16:34:12 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 16:34:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-09 16:34:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e344f14
+2026-05-09 16:34:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-09 16:34:13 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 16:34:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 16:34:17 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 16:34:17 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 16:34:19 [main] DEBUG c.h.a.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-09 16:34:23 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-09 16:34:25 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a593fc7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@13e59265, org.springframework.security.web.context.SecurityContextHolderFilter@5b0d8236, org.springframework.security.web.header.HeaderWriterFilter@1355d2a0, org.springframework.web.filter.CorsFilter@2c5b04c7, org.springframework.security.web.authentication.logout.LogoutFilter@6a584533, com.hospital.authservice.security.JwtAuthenticationFilter@3c50ba07, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a958d2a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a04a440, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@539f0729, org.springframework.security.web.session.SessionManagementFilter@1618b4fa, org.springframework.security.web.access.ExceptionTranslationFilter@7ba92958, org.springframework.security.web.access.intercept.AuthorizationFilter@4d2cd74]
+2026-05-09 16:34:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-05-09 16:34:26 [main] INFO  c.h.a.AuthServiceApplication - Started AuthServiceApplication in 24.119 seconds (process running for 25.137)
+2026-05-09 16:34:27 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 16:34:27 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-09 16:34:27 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-09 16:36:24 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-09 16:36:24 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:36:24 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-09 16:36:25 [http-nio-8081-exec-1] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-09 16:36:25 [http-nio-8081-exec-1] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-09 16:36:26 [http-nio-8081-exec-1] DEBUG c.h.authservice.security.JwtService - Generando access token para usuario: pXQfRhT3T1
+2026-05-09 16:36:27 [http-nio-8081-exec-1] DEBUG c.h.authservice.security.JwtService - Generando refresh token para usuario: pXQfRhT3T1
+2026-05-09 16:36:27 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-09 16:36:27 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-09 16:36:27 [http-nio-8081-exec-1] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:36:47 [http-nio-8081-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:36:47 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:38:35 [http-nio-8081-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:38:35 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:48:44 [main] INFO  c.h.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 18260 (C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth\target\classes started by trami in C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth)
+2026-05-09 16:48:44 [main] DEBUG c.h.a.AuthServiceApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-05-09 16:48:44 [main] INFO  c.h.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-09 16:48:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 16:48:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 227 ms. Found 10 JPA repository interfaces.
+2026-05-09 16:48:52 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-09 16:48:52 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-09 16:48:52 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-05-09 16:48:53 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-09 16:48:53 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8659 ms
+2026-05-09 16:48:55 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-09 16:48:55 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-09 16:48:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-09 16:48:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 16:48:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-09 16:48:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@448a6d00
+2026-05-09 16:48:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-09 16:48:58 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 16:49:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 16:49:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 16:49:04 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 16:49:07 [main] DEBUG c.h.a.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-09 16:49:13 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-09 16:49:14 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@482f59f4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f2fd933, org.springframework.security.web.context.SecurityContextHolderFilter@7cb77d5, org.springframework.security.web.header.HeaderWriterFilter@6fb07db6, org.springframework.web.filter.CorsFilter@6c430548, org.springframework.security.web.authentication.logout.LogoutFilter@4c48564d, com.hospital.authservice.security.JwtAuthenticationFilter@64d19dad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6dbcb435, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4cf1ba4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48a5ef5c, org.springframework.security.web.session.SessionManagementFilter@90e5788, org.springframework.security.web.access.ExceptionTranslationFilter@6b1293a5, org.springframework.security.web.access.intercept.AuthorizationFilter@1f0b2ffb]
+2026-05-09 16:49:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-05-09 16:49:16 [main] INFO  c.h.a.AuthServiceApplication - Started AuthServiceApplication in 33.469 seconds (process running for 34.576)
+2026-05-09 16:49:16 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 16:49:16 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-09 16:49:16 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-05-09 16:49:42 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-09 16:49:42 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:49:42 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-09 16:49:43 [http-nio-8081-exec-2] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-09 16:49:43 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-09 16:49:43 [http-nio-8081-exec-2] DEBUG c.h.authservice.security.JwtService - Generando access token para usuario: pXQfRhT3T1
+2026-05-09 16:49:44 [http-nio-8081-exec-2] DEBUG c.h.authservice.security.JwtService - Generando refresh token para usuario: pXQfRhT3T1
+2026-05-09 16:49:44 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-09 16:49:44 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-09 16:49:44 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-09 16:51:09 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:51:09 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:51:09 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:51:10 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 16:51:21 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:51:21 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:51:21 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:51:21 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 16:51:21 [http-nio-8081-exec-6] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09 16:51:21 [http-nio-8081-exec-6] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNTk3ODQsImV4cCI6MTc3ODM2MDY4NH0.BDimKyt2jTXeHtD2n3cULBUZC-9gUvXotYPqyQGS4b1npYb4OuloAlwm12Ojn5C"
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:52:25 [http-nio-8081-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:25 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:52:31 [http-nio-8081-exec-9] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:31 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:52:51 [http-nio-8081-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:51 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:52:53 [http-nio-8081-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:53 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:52:55 [http-nio-8081-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:52:55 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:54:13 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:54:13 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:54:13 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:54:13 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 16:54:33 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:54:33 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:54:33 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:54:33 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 16:54:33 [http-nio-8081-exec-1] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09 16:54:33 [http-nio-8081-exec-1] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNTk3ODQsImV4cCI6MTc3ODM2MDY4NH0.BDimKyt2jTXeHtD2n3cULBUZC-9gUvXotYPqyQGS4b1npYb4OuloAlwm12Ojn5C"
+2026-05-09 16:54:43 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:54:43 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:54:43 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:54:43 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:57:10 [http-nio-8081-exec-8] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'Authorization' for method parameter type String is not present]
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:57:10 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-09 16:57:39 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 16:57:39 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 16:57:39 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 16:57:39 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:02:39 [main] INFO  c.h.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 45504 (C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth\target\classes started by trami in C:\Users\trami\Desktop\dev1\CuidadoSeguro_Auth)
+2026-05-09 17:02:39 [main] DEBUG c.h.a.AuthServiceApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-05-09 17:02:39 [main] INFO  c.h.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-09 17:02:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-09 17:02:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 253 ms. Found 10 JPA repository interfaces.
+2026-05-09 17:02:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-09 17:02:45 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-09 17:02:45 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-05-09 17:02:45 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-09 17:02:45 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6310 ms
+2026-05-09 17:02:47 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-09 17:02:47 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-09 17:02:48 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-09 17:02:49 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-09 17:02:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-09 17:02:50 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cb3463b
+2026-05-09 17:02:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-09 17:02:50 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-09 17:02:55 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-09 17:02:56 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-09 17:02:57 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-09 17:02:59 [main] DEBUG c.h.a.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-09 17:03:04 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-09 17:03:05 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dbdfa38, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@546f0369, org.springframework.security.web.context.SecurityContextHolderFilter@799bc760, org.springframework.security.web.header.HeaderWriterFilter@122a3a87, org.springframework.web.filter.CorsFilter@7066b8e6, org.springframework.security.web.authentication.logout.LogoutFilter@640b5373, com.hospital.authservice.security.JwtAuthenticationFilter@4f042c70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d752f29, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@554d4856, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@753bfb4b, org.springframework.security.web.session.SessionManagementFilter@2c689e6d, org.springframework.security.web.access.ExceptionTranslationFilter@5f1bf89a, org.springframework.security.web.access.intercept.AuthorizationFilter@7c65b55b]
+2026-05-09 17:03:08 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-09 17:03:08 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-09 17:03:08 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-05-09 17:03:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-05-09 17:03:08 [main] INFO  c.h.a.AuthServiceApplication - Started AuthServiceApplication in 30.8 seconds (process running for 32.457)
+2026-05-09 17:06:53 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:06:53 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:06:53 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:06:55 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:06:55 [http-nio-8081-exec-1] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT expired 131979 milliseconds ago at 2026-05-09T21:04:44.000Z. Current time: 2026-05-09T21:06:55.979Z. Allowed clock skew: 0 milliseconds.
+2026-05-09 17:06:56 [http-nio-8081-exec-1] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNTk3ODQsImV4cCI6MTc3ODM2MDY4NH0.BDimKyt2jTXeHtD2n3cULBUZC-9gUvXotYPqyQGS4b1npYb4OuloAlwm12Ojn5CC"
+2026-05-09 17:07:41 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:07:41 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:07:42 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:07:42 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:07:42 [http-nio-8081-exec-6] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT expired 178256 milliseconds ago at 2026-05-09T21:04:44.000Z. Current time: 2026-05-09T21:07:42.256Z. Allowed clock skew: 0 milliseconds.
+2026-05-09 17:07:42 [http-nio-8081-exec-6] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNTk3ODQsImV4cCI6MTc3ODM2MDY4NH0.BDimKyt2jTXeHtD2n3cULBUZC-9gUvXotYPqyQGS4b1npYb4OuloAlwm12Ojn5CC"
+2026-05-09 17:07:50 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-09 17:07:50 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:07:50 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-09 17:07:51 [http-nio-8081-exec-7] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-09 17:07:51 [http-nio-8081-exec-7] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-09 17:07:51 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG c.h.authservice.security.JwtService - Generando access token para usuario: pXQfRhT3T1
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG c.h.authservice.security.JwtService - Generando refresh token para usuario: pXQfRhT3T1
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-09 17:07:52 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-09 17:07:52 [http-nio-8081-exec-7] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-09 17:08:12 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:08:12 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:08:12 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:08:12 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:08:23 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:08:23 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:08:23 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:08:23 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:09:05 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:09:05 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:09:05 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:09:05 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:09:15 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:09:15 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:09:15 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:09:15 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:09:15 [http-nio-8081-exec-3] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+2026-05-09 17:09:15 [http-nio-8081-exec-3] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNjA4NzIsImV4cCI6MTc3ODM2MTc3Mn0.ZCqHPD0BYe7Cs9d8Rt8_l4X_Xt7KrT5VmGVhBviF4McZutXn9LwO6eSC3moldML"
+2026-05-09 17:09:27 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:09:27 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:09:27 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:09:27 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:10:26 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:10:26 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:10:26 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:10:26 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:11:59 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:11:59 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:11:59 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:11:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:12:21 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:12:21 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:12:21 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:12:21 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:18:16 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:18:16 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:18:16 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:18:16 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:19:40 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:19:40 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:19:40 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:19:40 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:24:07 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.html
+2026-05-09 17:24:07 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:07 [http-nio-8081-exec-4] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:07 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.html
+2026-05-09 17:24:08 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui.css
+2026-05-09 17:24:08 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-10] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui.css
+2026-05-09 17:24:08 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-bundle.js
+2026-05-09 17:24:08 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-initializer.js
+2026-05-09 17:24:08 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-05-09 17:24:08 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /swagger-ui/index.css
+2026-05-09 17:24:08 [http-nio-8081-exec-7] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-1] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-initializer.js
+2026-05-09 17:24:08 [http-nio-8081-exec-6] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2026-05-09 17:24:08 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/swagger-ui-bundle.js
+2026-05-09 17:24:08 [http-nio-8081-exec-5] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /swagger-ui/index.css
+2026-05-09 17:24:08 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs/swagger-config
+2026-05-09 17:24:08 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:08 [http-nio-8081-exec-8] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:08 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs/swagger-config
+2026-05-09 17:24:09 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /v3/api-docs
+2026-05-09 17:24:09 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:09 [http-nio-8081-exec-9] DEBUG o.s.s.w.s.SessionManagementFilter - Request requested invalid session id E7E12C41799F8590B1CF0450EF0D7CAB
+2026-05-09 17:24:09 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /v3/api-docs
+2026-05-09 17:24:11 [http-nio-8081-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2373 ms
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-09 17:24:23 [http-nio-8081-exec-2] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-09 17:24:23 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-09 17:24:23 [http-nio-8081-exec-2] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-09 17:24:24 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-09 17:24:24 [http-nio-8081-exec-2] DEBUG c.h.authservice.security.JwtService - Generando access token para usuario: pXQfRhT3T1
+2026-05-09 17:24:24 [http-nio-8081-exec-2] DEBUG c.h.authservice.security.JwtService - Generando refresh token para usuario: pXQfRhT3T1
+2026-05-09 17:24:24 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-09 17:24:24 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-09 17:24:24 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-09 17:26:42 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:26:42 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:26:42 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:26:43 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:26:49 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:26:49 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:26:49 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:26:49 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:26:50 [http-nio-8081-exec-8] ERROR c.h.authservice.security.JwtService - Error validando token 2: JWT expired 238061 milliseconds ago at 2026-05-09T21:22:52.000Z. Current time: 2026-05-09T21:26:50.061Z. Allowed clock skew: 0 milliseconds.
+2026-05-09 17:26:50 [http-nio-8081-exec-8] ERROR c.h.authservice.security.JwtService - Token inválido: "eyJhbGciOiJIUzM4NCJ9.eyJ0eXBlIjoiYWNjZXNzIiwiZW1haWwiOiJoSkJ5VmlYQVhENU8zLWlNbUJMVjUzNiIsInVzZXJuYW1lIjoiaEpCeVZpWEFYRCIsInN1YiI6InBYUWZSaFQzVDEiLCJpYXQiOjE3NzgzNjA4NzIsImV4cCI6MTc3ODM2MTc3Mn0.ZCqHPD0BYe7Cs9d8Rt8_l4X_Xt7KrT5VmGVhBviF4McZutXn9LwO6eSC3moldMLJ"
+2026-05-09 17:27:10 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:27:10 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:27:10 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:27:10 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:29:50 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:29:51 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:29:51 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:29:51 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-09 17:31:26 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/validate
+2026-05-09 17:31:26 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-09 17:31:26 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/validate
+2026-05-09 17:31:26 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?

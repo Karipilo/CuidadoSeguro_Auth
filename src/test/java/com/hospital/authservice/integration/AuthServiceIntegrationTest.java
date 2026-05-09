@@ -114,7 +114,7 @@ class AuthServiceIntegrationTest {
                 .roles(List.of("ROLE_PACIENTE")) // ✅ FIX
                 .build();
 
-        mockMvc.perform(post("/api/auth/register")
+        mockMvc.perform(post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
@@ -129,7 +129,7 @@ class AuthServiceIntegrationTest {
                 .password("bad")
                 .build();
 
-        mockMvc.perform(post("/api/auth/login")
+        mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isUnauthorized());
@@ -137,7 +137,7 @@ class AuthServiceIntegrationTest {
 
     @Test
     void testHealth() throws Exception {
-        mockMvc.perform(get("/api/auth/health"))
+        mockMvc.perform(get("/auth/health"))
                 .andExpect(status().isOk());
     }
 }
