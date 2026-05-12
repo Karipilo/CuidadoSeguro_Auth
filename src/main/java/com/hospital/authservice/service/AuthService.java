@@ -59,10 +59,6 @@ public Paciente obtenerDetallesUsuario(String token) {
             throw new AuthException("Token no proporcionado");
         }
 
-        if (!validateToken(token)) {
-            throw new AuthException("Token inválido o revocado");
-        }
-
         // 1. Extraer userId desde JWT
         Long userId = jwtService.getUserIdFromToken(token);
 
