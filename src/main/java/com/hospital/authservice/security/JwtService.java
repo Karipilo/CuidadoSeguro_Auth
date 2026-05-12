@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.hospital.authservice.utils.CryptoUtil;
-
 import javax.crypto.SecretKey;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -30,29 +28,16 @@ public class JwtService {
     @Value("${jwt.refresh-expiration:604800}")
     private Long refreshExpiration;
 
+    // =========================
+    // KEY
+    // =========================
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
-    public String extractUsername(String token) {
-        String encrypted = extractClaim(token, Claims::getSubject);
-        return CryptoUtil.decrypt(encrypted);
-    }
-
-    public String extractEmail(String token) {
-        String encrypted = extractAllClaims(token).get("email", String.class);
-        return CryptoUtil.decrypt(encrypted);
-    }
-
-    public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
-    }
-
-    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = extractAllClaims(token);
-        return claimsResolver.apply(claims);
-    }
-
+    // =========================
+    // EXTRACT CLAIMS
+    // =========================
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .verifyWith(getSigningKey())
@@ -61,10 +46,34 @@ public class JwtService {
                 .getPayload();
     }
 
-    private Boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+    public <T> T extractClaim(String token, Function<Claims, T> resolver) {
+        return resolver.apply(extractAllClaims(token));
     }
 
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
+    }
+
+    // =========================
+    // USER DATA (CLEAN)
+    // =========================
+
+    public String extractUsername(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
+    public Long getUserIdFromToken(String token) {
+        Object id = extractAllClaims(token).get("userId");
+        return id != null ? Long.valueOf(id.toString()) : null;
+    }
+
+    public String getEmailFromToken(String token) {
+        return extractAllClaims(token).get("email", String.class);
+    }
+
+    // =========================
+    // TOKEN GENERATION
+    // =========================
 
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
@@ -75,103 +84,113 @@ public class JwtService {
         Map<String, Object> claims = new HashMap<>(extraClaims);
 
         try {
-            Object principal = userDetails;
+            if (userDetails instanceof com.hospital.authservice.entity.Usuario usuario) {
 
-            if (principal instanceof com.hospital.authservice.entity.Usuario usuario) {
+                claims.put("userId", usuario.getId()); // 🔥 CLAVE NUEVA
+                claims.put("email", usuario.getEmail());
 
-                claims.put("username", CryptoUtil.encrypt(usuario.getUsername()));
-                claims.put("email", CryptoUtil.encrypt(usuario.getEmail()));
+                return Jwts.builder()
+                        .setClaims(claims)
+                        .setSubject(usuario.getUsername()) // username limpio (NO cifrado)
+                        .setIssuedAt(new Date())
+                        .setExpiration(Date.from(
+                                Instant.now().plus(jwtExpiration, ChronoUnit.SECONDS)))
+                        .signWith(getSigningKey())
+                        .compact();
 
             } else {
-                // fallback 
-                claims.put("username", CryptoUtil.encrypt(userDetails.getUsername()));
+
+                claims.put("userId", null);
+
+                return Jwts.builder()
+                        .setClaims(claims)
+                        .setSubject(userDetails.getUsername())
+                        .setIssuedAt(new Date())
+                        .setExpiration(Date.from(
+                                Instant.now().plus(jwtExpiration, ChronoUnit.SECONDS)))
+                        .signWith(getSigningKey())
+                        .compact();
             }
 
         } catch (Exception e) {
-            log.warn("No se pudieron encriptar datos: {}", e.getMessage());
+            log.error("Error generando token", e);
+            throw new RuntimeException("Error generando token");
         }
-
-        String encryptedSubject = CryptoUtil.encrypt(userDetails.getUsername());
-
-        return Jwts.builder()
-                .addClaims(claims)
-                .subject(encryptedSubject)
-                .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(Date.from(Instant.now().plus(jwtExpiration, ChronoUnit.SECONDS)))
-                .signWith(getSigningKey())
-                .compact();
     }
 
-    private String buildToken(
-            Map<String, Object> extraClaims,
-            UserDetails userDetails,
-            String email,
-            long expirationSeconds,
-            String type
-    ) {
+    // =========================
+    // REFRESH TOKEN
+    // =========================
+
+    public String generateRefreshToken(Map<String, Object> extraClaims, UserDetails userDetails, String email) {
 
         Map<String, Object> claims = new HashMap<>(extraClaims);
 
-        log.debug("Generando {} token para usuario: {}", type, userDetails.getUsername());
-
-        try {
-            claims.put("username", CryptoUtil.encrypt(userDetails.getUsername()));
-            claims.put("email", CryptoUtil.encrypt(email));
-        } catch (Exception e) {
-            log.warn("Error encriptando datos: {}", e.getMessage());
+        if (userDetails instanceof com.hospital.authservice.entity.Usuario usuario) {
+            claims.put("userId", usuario.getId());
         }
 
-        claims.put("type", type);
+        claims.put("email", email);
+        claims.put("type", "refresh");
 
         return Jwts.builder()
-                .addClaims(claims)
-                .subject(userDetails.getUsername())
-                .issuedAt(new Date())
-                .expiration(Date.from(Instant.now().plus(expirationSeconds, ChronoUnit.SECONDS)))
+                .setClaims(claims)
+                .setSubject(userDetails.getUsername())
+                .setIssuedAt(new Date())
+                .setExpiration(Date.from(
+                        Instant.now().plus(refreshExpiration, ChronoUnit.SECONDS)))
                 .signWith(getSigningKey())
                 .compact();
     }
 
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails, String email) {
-        return buildToken(extraClaims, userDetails, email, jwtExpiration, "access");
+    // =========================
+    // VALIDATION
+    // =========================
+
+    private boolean isTokenExpired(String token) {
+        return extractExpiration(token).before(new Date());
     }
 
-    public String generateRefreshToken(Map<String, Object> extraClaims, UserDetails userDetails, String email) {
-        return buildToken(extraClaims, userDetails, email, refreshExpiration, "refresh");
-    }
+    public boolean isTokenValid(String token, UserDetails userDetails) {
 
-    public Boolean isTokenValid(String token, UserDetails userDetails) {
         if (token.startsWith("Bearer ")) {
             token = token.substring(7).trim();
         }
 
         try {
-            final String username = extractUsername(token);
-            return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+            String username = extractUsername(token);
+
+            return username.equals(userDetails.getUsername())
+                    && !isTokenExpired(token);
+
         } catch (Exception e) {
-            log.error("Error validando token 1: {}", e.getMessage());
-            log.error("Token inválido: \"{}\"", token);
+            log.error("Token inválido", e.getMessage());
             return false;
         }
     }
 
-    public Boolean isTokenValid(String token) {
+    public boolean isTokenValid(String token) {
+
         if (token.startsWith("Bearer ")) {
             token = token.substring(7).trim();
         }
+
         try {
             extractAllClaims(token);
             return !isTokenExpired(token);
         } catch (Exception e) {
-            log.error("Error validando token 2: {}", e.getMessage());
-            log.error("Token inválido: \"{}\"", token);
+            log.error("Token inválido: {}", e.getMessage());
             return false;
         }
     }
 
+    // =========================
+    // UTIL
+    // =========================
+
     public LocalDateTime getExpirationDate(String token) {
-        Date expiration = extractExpiration(token);
-        return expiration.toInstant()
+        return extractExpiration(token)
+                .toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
     }

@@ -18,6 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import java.util.UUID;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class AuthService {
     
     private final AuthenticationManager authenticationManager;
@@ -46,6 +48,49 @@ public class AuthService {
     private final ConsentimientoRepository consentimientoRepository;
     private final TerminosCondicionesRepository terminosCondicionesRepository;
     
+
+    @Transactional(readOnly = true)
+public Paciente obtenerDetallesUsuario(String token) {
+
+    try {
+        token = token.replace("Bearer ", "").trim();
+
+        if (token.isEmpty()) {
+            throw new AuthException("Token no proporcionado");
+        }
+
+        if (!validateToken(token)) {
+            throw new AuthException("Token inválido o revocado");
+        }
+
+        // 1. Extraer userId desde JWT
+        Long userId = jwtService.getUserIdFromToken(token);
+
+        if (userId == null) {
+            throw new AuthException("Token sin userId");
+        }
+
+        log.info("UserId desde JWT: {}", userId);
+
+        // 2. Buscar usuario por ID
+        Usuario usuario = usuarioRepository.findById(userId)
+                .orElseThrow(() -> {
+                    log.error("Usuario no encontrado en BD. ID usado: {}", userId);
+                    return new AuthException("Usuario no encontrado");
+                });
+
+        
+
+        return usuario.getPaciente();
+
+    } catch (AuthException e) {
+        throw e;
+    } catch (Exception e) {
+        log.error("Error obteniendo detalles de usuario", e);
+        throw new AuthException("Error procesando token");
+    }
+}
+
     @Transactional
     public boolean validateToken(String token) {
         try {
@@ -87,8 +132,7 @@ public class AuthService {
 
             String accessToken = jwtService.generateToken(
                     accessClaims,
-                    usuario,
-                    usuario.getEmail()
+                    usuario
             );
 
             String refreshToken = jwtService.generateRefreshToken(
@@ -189,13 +233,27 @@ public class AuthService {
         log.info("Intento de registro para usuario: {}", request.getUsername());
         
         // Validaciones básicas
-        if (usuarioRepository.existsByUsername(request.getUsername())) {
-            throw new AuthException("El username ya está en uso");
-        }
-        
-        if (usuarioRepository.existsByEmail(request.getEmail())) {
-            throw new AuthException("El email ya está en uso");
-        }
+        String encryptedUsername;
+String encryptedEmail;
+
+    try {
+
+        encryptedUsername = CryptoUtil.encrypt(request.getUsername());
+        encryptedEmail = CryptoUtil.encrypt(request.getEmail());
+
+    } catch (Exception e) {
+
+        throw new AuthException("Error encriptando datos");
+
+    }
+
+    if (usuarioRepository.existsByUsername(encryptedUsername)) {
+        throw new AuthException("El username ya está en uso");
+    }
+
+    if (usuarioRepository.existsByEmail(encryptedEmail)) {
+        throw new AuthException("El email ya está en uso");
+    }
         
         if (personaRepository.existsByNumeroDocumento(request.getNumeroDocumento())) {
             throw new AuthException("El número de documento ya está registrado");
@@ -215,9 +273,8 @@ public class AuthService {
         com.hospital.authservice.factory.User userCreator = userFactory.createUser(request.getTipoUsuario());
         Usuario usuario = userCreator.crearUsuario(request);
         
-        usuario.setUsername(CryptoUtil.encrypt(request.getUsername()));
-        usuario.setEmail(CryptoUtil.encrypt(request.getEmail()));
-
+        usuario.setUsername(encryptedUsername);
+        usuario.setEmail(encryptedEmail);
         if (request.getPassword().chars().anyMatch(Character::isLowerCase) &&
             request.getPassword().chars().anyMatch(Character::isUpperCase) &&
             request.getPassword().chars().anyMatch(Character::isDigit) &&
@@ -334,8 +391,7 @@ public class AuthService {
 
         String accessToken = jwtService.generateToken(
                 accessClaims,
-                usuario,
-                usuario.getEmail()
+                usuario
         );
 
         String refreshToken = jwtService.generateRefreshToken(
@@ -409,10 +465,9 @@ public class AuthService {
 
         String newAccessToken = jwtService.generateToken(
                 accessClaims,
-                usuario,
-                usuario.getEmail()
+                usuario
         );
-
+        
         String newRefreshToken = jwtService.generateRefreshToken(
                 refreshClaims,
                 usuario,
