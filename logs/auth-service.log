@@ -15018,3 +15018,2987 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'eyJhbGciOiJI
         profesionales p1_0 
     where
         p1_0.usuario_id=?
+2026-05-12 04:48:04 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h32s155ms921µs500ns).
+2026-05-12 10:01:52 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h13m51s757ms553µs).
+2026-05-12 10:02:18 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:02:18 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:18 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:02:18 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:02:19 [http-nio-8081-exec-9] ERROR c.h.authservice.security.JwtService - Token inválido: JWT expired 30119201 milliseconds ago at 2026-05-12T05:40:20.000Z. Current time: 2026-05-12T14:02:19.201Z. Allowed clock skew: 0 milliseconds.
+2026-05-12 10:02:20 [http-nio-8081-exec-9] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.hospital.authservice.exception.AuthException: Token inválido o revocado] with root cause
+com.hospital.authservice.exception.AuthException: Token inválido o revocado
+	at com.hospital.authservice.service.AuthService.obtenerDetallesUsuario(AuthService.java:63)
+	at jdk.internal.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.hospital.authservice.service.AuthService$$SpringCGLIB$$0.obtenerDetallesUsuario(<generated>)
+	at com.hospital.authservice.controller.AuthController.obtenerDatosUsuario(AuthController.java:53)
+	at jdk.internal.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.hospital.authservice.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:40)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-05-12 10:02:20 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-12 10:02:20 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:20 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:02:21 [http-nio-8081-exec-10] ERROR c.h.authservice.security.JwtService - Token inválido: JWT expired 30121144 milliseconds ago at 2026-05-12T05:40:20.000Z. Current time: 2026-05-12T14:02:21.144Z. Allowed clock skew: 0 milliseconds.
+2026-05-12 10:02:21 [http-nio-8081-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: com.hospital.authservice.exception.AuthException: Token inválido o revocado] with root cause
+com.hospital.authservice.exception.AuthException: Token inválido o revocado
+	at com.hospital.authservice.service.AuthService.obtenerDetallesUsuario(AuthService.java:63)
+	at jdk.internal.reflect.GeneratedMethodAccessor45.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720)
+	at com.hospital.authservice.service.AuthService$$SpringCGLIB$$0.obtenerDetallesUsuario(<generated>)
+	at com.hospital.authservice.controller.AuthController.obtenerDatosUsuario(AuthController.java:53)
+	at jdk.internal.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.hospital.authservice.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:40)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /error
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:21 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.Http403ForbiddenEntryPoint - Pre-authenticated entry point called. Rejecting access
+2026-05-12 10:02:23 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-12 10:02:23 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:23 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-12 10:02:24 [http-nio-8081-exec-5] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez
+2026-05-12 10:02:24 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:02:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-12 10:02:25 [http-nio-8081-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-12 10:02:25 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-12 10:02:25 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:02:25 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-12 10:02:25 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:02:26 [http-nio-8081-exec-6] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 1
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:02:26 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:02:26 [http-nio-8081-exec-7] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 1
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:02:26 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:48 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/register
+2026-05-12 10:04:48 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:04:48 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/register
+2026-05-12 10:04:50 [http-nio-8081-exec-2] INFO  c.h.a.controller.AuthController - Register attempt: juan.perez5
+2026-05-12 10:04:50 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Intento de registro para usuario: juan.perez5
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=? 
+    limit
+        ?
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        p1_0.id 
+    from
+        personas p1_0 
+    where
+        p1_0.numero_documento=? 
+    limit
+        ?
+2026-05-12 10:04:50 [http-nio-8081-exec-2] INFO  c.h.authservice.factory.PacienteUser - Creando usuario de tipo PACIENTE para: juan.perez5
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG c.h.authservice.factory.PacienteUser - Validaciones específicas de PACIENTE pasadas para usuario: juan.perez5
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        r1_0.id,
+        r1_0.activo,
+        r1_0.descripcion,
+        r1_0.nombre 
+    from
+        roles r1_0 
+    where
+        r1_0.nombre=?
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        p1_0.id 
+    from
+        pacientes p1_0 
+    where
+        p1_0.historia_clinica=? 
+    limit
+        ?
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Persona */insert 
+    into
+        personas (activo, apellidos, direccion, email, fecha_nacimiento, genero, nombres, numero_documento, telefono, tipo_documento) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Usuario */insert 
+    into
+        usuarios (activo, email, fecha_actualizacion, fecha_creacion, fecha_ultimo_login, intentos_fallidos, no_bloqueado, password, persona_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:04:50 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Paciente */insert 
+    into
+        pacientes (activo, alergias, contacto_emergencia, enfermedades_cronicas, factor_rh, fecha_actualizacion, fecha_creacion, grupo_sanguineo, historia_clinica, medicamentos_actuales, persona_id, prevision, telefono_emergencia, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:04:51 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tc1_0.id,
+        tc1_0.activo,
+        tc1_0.contenido,
+        tc1_0.fecha_creacion,
+        tc1_0.fecha_vigencia,
+        tc1_0.titulo,
+        tc1_0.version 
+    from
+        terminos_condiciones tc1_0 
+    where
+        tc1_0.version=?
+2026-05-12 10:04:51 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:04:51 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - Registro exitoso para usuario: juan.perez5
+2026-05-12 10:04:51 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Usuario.roles */insert 
+    into
+        usuario_rol (usuario_id, rol_id) 
+    values
+        (?, ?)
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-12 10:04:58 [http-nio-8081-exec-3] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez5
+2026-05-12 10:04:58 [http-nio-8081-exec-3] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez5
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:58 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-12 10:04:59 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:04:59 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-3] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez5
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:04:59 [http-nio-8081-exec-4] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:04:59 [http-nio-8081-exec-1] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:04:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/register
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/register
+2026-05-12 10:07:17 [http-nio-8081-exec-10] INFO  c.h.a.controller.AuthController - Register attempt: juan.perez6
+2026-05-12 10:07:17 [http-nio-8081-exec-10] INFO  c.h.authservice.service.AuthService - Intento de registro para usuario: juan.perez6
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=? 
+    limit
+        ?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id 
+    from
+        usuarios u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        p1_0.id 
+    from
+        personas p1_0 
+    where
+        p1_0.numero_documento=? 
+    limit
+        ?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] INFO  c.h.a.factory.ProfesionalUser - Creando usuario de tipo PROFESIONAL para: juan.perez6
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG c.h.a.factory.ProfesionalUser - Validaciones específicas de PROFESIONAL pasadas para usuario: juan.perez6
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        r1_0.id,
+        r1_0.activo,
+        r1_0.descripcion,
+        r1_0.nombre 
+    from
+        roles r1_0 
+    where
+        r1_0.nombre=?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        p1_0.id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.numero_licencia=? 
+    limit
+        ?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Persona */insert 
+    into
+        personas (activo, apellidos, direccion, email, fecha_nacimiento, genero, nombres, numero_documento, telefono, tipo_documento) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Usuario */insert 
+    into
+        usuarios (activo, email, fecha_actualizacion, fecha_creacion, fecha_ultimo_login, intentos_fallidos, no_bloqueado, password, persona_id, username) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Profesional */insert 
+    into
+        profesionales (activo, anio_graduacion, especialidad, experiencia_anios, fecha_actualizacion, fecha_creacion, horas_semanales, institucion, numero_licencia, subespecialidad, universidad, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tc1_0.id,
+        tc1_0.activo,
+        tc1_0.contenido,
+        tc1_0.fecha_creacion,
+        tc1_0.fecha_vigencia,
+        tc1_0.titulo,
+        tc1_0.version 
+    from
+        terminos_condiciones tc1_0 
+    where
+        tc1_0.version=?
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:07:17 [http-nio-8081-exec-10] INFO  c.h.authservice.service.AuthService - Registro exitoso para usuario: juan.perez6
+2026-05-12 10:07:17 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.Usuario.roles */insert 
+    into
+        usuario_rol (usuario_id, rol_id) 
+    values
+        (?, ?)
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-12 10:07:24 [http-nio-8081-exec-5] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez6
+2026-05-12 10:07:24 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez6
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:07:24 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-12 10:07:24 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez6
+2026-05-12 10:07:24 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:07:24 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:07:24 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:07:24 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:07:25 [http-nio-8081-exec-6] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 10
+2026-05-12 10:07:25 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:07:25 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:25 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        tb1_0.id 
+    from
+        token_blacklist tb1_0 
+    where
+        tb1_0.token=? 
+    limit
+        ?
+2026-05-12 10:07:25 [http-nio-8081-exec-7] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 10
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:07:25 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:08:46 [main] INFO  c.h.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.18 with PID 6404 (C:\Users\trami\Documents\GitHub\CuidadoSeguro_Auth\target\classes started by trami in C:\Users\trami\Documents\GitHub\CuidadoSeguro_Auth)
+2026-05-12 10:08:46 [main] DEBUG c.h.a.AuthServiceApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-05-12 10:08:46 [main] INFO  c.h.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-12 10:08:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-12 10:08:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 215 ms. Found 10 JPA repository interfaces.
+2026-05-12 10:08:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-12 10:08:53 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-12 10:08:53 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-05-12 10:08:53 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-12 10:08:53 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7034 ms
+2026-05-12 10:08:54 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-12 10:08:54 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-12 10:08:55 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-12 10:08:55 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-12 10:08:55 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-12 10:08:56 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@563392e5
+2026-05-12 10:08:56 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-12 10:08:56 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-12 10:08:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-12 10:08:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-12 10:09:00 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-12 10:09:02 [main] DEBUG c.h.a.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-12 10:09:06 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-12 10:09:07 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@657c93da, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ad51d91, org.springframework.security.web.context.SecurityContextHolderFilter@a8eb0bf, org.springframework.security.web.header.HeaderWriterFilter@463b865b, org.springframework.web.filter.CorsFilter@7f3964b0, org.springframework.security.web.authentication.logout.LogoutFilter@5dd7f921, com.hospital.authservice.security.JwtAuthenticationFilter@30b0d271, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16a3060c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@742b91a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@438cb294, org.springframework.security.web.session.SessionManagementFilter@23368646, org.springframework.security.web.access.ExceptionTranslationFilter@90e5788, org.springframework.security.web.access.intercept.AuthorizationFilter@1d35dcd4]
+2026-05-12 10:09:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path ''
+2026-05-12 10:09:09 [main] INFO  c.h.a.AuthServiceApplication - Started AuthServiceApplication in 24.386 seconds (process running for 26.469)
+2026-05-12 10:09:09 [RMI TCP Connection(2)-127.0.0.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-12 10:09:09 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-12 10:09:09 [RMI TCP Connection(2)-127.0.0.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-12 10:09:23 [http-nio-8081-exec-1] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez6
+2026-05-12 10:09:23 [http-nio-8081-exec-1] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez6
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-12 10:09:23 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:09:24 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-12 10:09:24 [http-nio-8081-exec-1] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez6
+2026-05-12 10:09:24 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:09:24 [http-nio-8081-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:09:24 [http-nio-8081-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:09:25 [http-nio-8081-exec-2] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 10
+2026-05-12 10:09:25 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:09:25 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:09:25 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:09:25 [http-nio-8081-exec-3] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 10
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:09:25 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:08 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing POST /auth/login
+2026-05-12 10:15:08 [http-nio-8081-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:15:08 [http-nio-8081-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured POST /auth/login
+2026-05-12 10:15:08 [http-nio-8081-exec-5] INFO  c.h.a.controller.AuthController - Login attempt: juan.perez5
+2026-05-12 10:15:09 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Intento de login para usuario: juan.perez5
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    where
+        u1_0.username=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento 
+    from
+        personas p1_0 
+    where
+        p1_0.id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.persona_id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        u1_0.username 
+    from
+        tutores t1_0 
+    join
+        usuarios u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    left join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    where
+        t1_0.usuario_id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        Usuario u 
+    SET
+        u.fechaUltimoLogin = :fechaLogin 
+    WHERE
+        u.id = :usuarioId */ update usuarios 
+    set
+        fecha_ultimo_login=? 
+    where
+        id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* insert for
+        com.hospital.authservice.entity.RefreshToken */insert 
+    into
+        refresh_tokens (fecha_creacion, fecha_expiracion, fecha_revocacion, fecha_uso, revocado, token, usado, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-12 10:15:09 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    /* UPDATE
+        RefreshToken rt 
+    SET
+        rt.revocado = true 
+    WHERE
+        rt.usuario = :usuario */ update refresh_tokens 
+    set
+        revocado=1 
+    where
+        usuario_id=?
+2026-05-12 10:15:09 [http-nio-8081-exec-5] INFO  c.h.authservice.service.AuthService - Login exitoso para usuario: juan.perez5
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:15:10 [http-nio-8081-exec-10] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:10 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:15:10 [http-nio-8081-exec-6] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:15:10 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:17:15 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:17:16 [http-nio-8081-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:17:16 [http-nio-8081-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:17:16 [http-nio-8081-exec-9] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:17:16 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:17:16 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:17:16 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /auth/userinfo
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /auth/userinfo
+2026-05-12 10:17:17 [http-nio-8081-exec-8] INFO  c.h.authservice.service.AuthService - UserId desde JWT: 9
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        u1_0.id,
+        u1_0.activo,
+        u1_0.email,
+        u1_0.fecha_actualizacion,
+        u1_0.fecha_creacion,
+        u1_0.fecha_ultimo_login,
+        u1_0.intentos_fallidos,
+        u1_0.no_bloqueado,
+        u1_0.password,
+        u1_0.persona_id,
+        p1_0.id,
+        p1_0.activo,
+        p1_0.apellidos,
+        p1_0.direccion,
+        p1_0.email,
+        p1_0.fecha_nacimiento,
+        p1_0.genero,
+        p1_0.nombres,
+        p1_0.numero_documento,
+        p1_0.telefono,
+        p1_0.tipo_documento,
+        r1_0.usuario_id,
+        r1_1.id,
+        r1_1.activo,
+        r1_1.descripcion,
+        r1_1.nombre,
+        t1_0.id,
+        t1_0.pacientes,
+        t1_0.usuario_id,
+        u1_0.username 
+    from
+        usuarios u1_0 
+    join
+        personas p1_0 
+            on p1_0.id=u1_0.persona_id 
+    left join
+        usuario_rol r1_0 
+            on u1_0.id=r1_0.usuario_id 
+    left join
+        roles r1_1 
+            on r1_1.id=r1_0.rol_id 
+    left join
+        tutores t1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        u1_0.id=?
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.alergias,
+        p1_0.contacto_emergencia,
+        p1_0.enfermedades_cronicas,
+        p1_0.factor_rh,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.grupo_sanguineo,
+        p1_0.historia_clinica,
+        p1_0.medicamentos_actuales,
+        p2_0.id,
+        p2_0.activo,
+        p2_0.apellidos,
+        p2_0.direccion,
+        p2_0.email,
+        p2_0.fecha_nacimiento,
+        p2_0.genero,
+        p2_0.nombres,
+        p2_0.numero_documento,
+        p2_0.telefono,
+        p2_0.tipo_documento,
+        p1_0.prevision,
+        p1_0.telefono_emergencia,
+        p1_0.usuario_id 
+    from
+        pacientes p1_0 
+    left join
+        personas p2_0 
+            on p2_0.id=p1_0.persona_id 
+    where
+        p1_0.usuario_id=?
+2026-05-12 10:17:17 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        p1_0.id,
+        p1_0.activo,
+        p1_0.anio_graduacion,
+        p1_0.especialidad,
+        p1_0.experiencia_anios,
+        p1_0.fecha_actualizacion,
+        p1_0.fecha_creacion,
+        p1_0.horas_semanales,
+        p1_0.institucion,
+        p1_0.numero_licencia,
+        p1_0.subespecialidad,
+        p1_0.universidad,
+        p1_0.usuario_id 
+    from
+        profesionales p1_0 
+    where
+        p1_0.usuario_id=?
