@@ -1,6 +1,7 @@
 package com.hospital.authservice.controller;
 
 import com.hospital.authservice.dto.*;
+import com.hospital.authservice.entity.Paciente;
 import com.hospital.authservice.service.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -15,6 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Slf4j
 @RestController
@@ -43,6 +47,12 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/userinfo")
+    public Paciente obtenerDatosUsuario(@RequestHeader("Authorization") String token) {
+        
+        return authService.obtenerDetallesUsuario(token);
+    }
+    
     // ===================== REGISTER =====================
 
     @PostMapping("/register")
@@ -59,6 +69,8 @@ public class AuthController {
         AuthResponse response = authService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
+    
 
     // ===================== REFRESH =====================
 

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "personas")
 @Data
@@ -52,5 +54,6 @@ public class Persona {
     private Boolean activo = true;
     
     @OneToOne(mappedBy = "persona", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Usuario usuario;
 }
