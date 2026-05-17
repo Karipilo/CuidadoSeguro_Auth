@@ -2,6 +2,8 @@ package com.hospital.authservice.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,11 +19,12 @@ public class Tutor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Relación con usuario (auth)
     @OneToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-    @Column(nullable = false)
-    private String pacientes;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "tutor_pacientes", joinColumns = @JoinColumn(name = "tutor_id"))
+    @Column(name = "paciente_rut")
+    private List<String> pacientesRuts = new ArrayList<>();
 }

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @Schema(description = "Response de autenticación con tokens")
 @Data
@@ -51,6 +52,8 @@ public class AuthResponse {
         
         @Schema(description = "Tipo de usuario", example = "PACIENTE")
         private String tipoUsuario;
+
+        private List<String> pacientesRuts;
         
         @Schema(description = "Roles del usuario", example = "[\"ROLE_PACIENTE\"]")
         private java.util.List<String> roles;

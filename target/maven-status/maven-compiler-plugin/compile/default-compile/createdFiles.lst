@@ -1,3 +1,4 @@
+com\hospital\authservice\config\JacksonConfig.class
 com\hospital\authservice\factory\User.class
 com\hospital\authservice\dto\LogoutRequest.class
 com\hospital\authservice\dto\LogoutRequest$LogoutRequestBuilder.class
@@ -8,6 +9,7 @@ com\hospital\authservice\dto\LoginRequest.class
 com\hospital\authservice\entity\Paciente.class
 com\hospital\authservice\dto\RefreshRequest$RefreshRequestBuilder.class
 com\hospital\authservice\entity\Consentimiento$ConsentimientoBuilder.class
+com\hospital\authservice\utils\CryptoUtil.class
 com\hospital\authservice\dto\ApiResponseDto$ApiResponseDtoBuilder.class
 com\hospital\authservice\dto\AuthResponse$UserInfo$UserInfoBuilder.class
 com\hospital\authservice\entity\Usuario.class
@@ -16,6 +18,7 @@ com\hospital\authservice\entity\Usuario$UsuarioBuilder.class
 com\hospital\authservice\repository\RefreshTokenRepository.class
 com\hospital\authservice\repository\PacienteRepository.class
 com\hospital\authservice\repository\PersonaRepository.class
+com\hospital\authservice\dto\PacienteMicroDto.class
 com\hospital\authservice\factory\UserFactory.class
 com\hospital\authservice\repository\TokenBlacklistRepository.class
 com\hospital\authservice\security\CustomUserDetailsService.class
@@ -23,14 +26,14 @@ com\hospital\authservice\security\SecurityConfig.class
 com\hospital\authservice\entity\Profesional.class
 com\hospital\authservice\security\JwtAuthenticationEntryPoint.class
 com\hospital\authservice\factory\AdminUser.class
+com\hospital\authservice\utils\CryptoConverter.class
 com\hospital\authservice\factory\TutorUser.class
 com\hospital\authservice\repository\ConsentimientoRepository.class
 com\hospital\authservice\entity\Role$RoleBuilder.class
 com\hospital\authservice\dto\ApiResponseDto.class
 com\hospital\authservice\dto\AuthResponse$AuthResponseBuilder.class
+com\hospital\authservice\controller\PacienteController.class
 com\hospital\authservice\entity\TerminosCondiciones.class
-com\hospital\authservice\service\AuthServiceWithCircuitBreaker.class
-com\hospital\authservice\config\Resilience4jConfig.class
 com\hospital\authservice\config\OpenApiConfig.class
 com\hospital\authservice\dto\AuthResponse$UserInfo.class
 com\hospital\authservice\controller\AuthController.class
@@ -47,6 +50,7 @@ com\hospital\authservice\entity\TerminosCondiciones$TerminosCondicionesBuilder.c
 com\hospital\authservice\security\JwtAuthenticationFilter.class
 com\hospital\authservice\entity\Profesional$ProfesionalBuilder.class
 com\hospital\authservice\repository\ProfesionalRepository.class
+com\hospital\authservice\config\RestTemplateConfig.class
 com\hospital\authservice\dto\AuthResponse.class
 com\hospital\authservice\entity\Role.class
 com\hospital\authservice\entity\Tutor.class

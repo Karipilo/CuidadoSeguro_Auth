@@ -15,10 +15,13 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     List<Paciente> findByPersonaNumeroDocumentoIn(List<String> ruts);
 
 
+    
     Optional<Paciente> findByHistoriaClinica(String historiaClinica);
     
     boolean existsByHistoriaClinica(String historiaClinica);
     
     @Query("SELECT p FROM Paciente p WHERE p.historiaClinica = :historiaClinica AND p.activo = true")
     Optional<Paciente> findPacienteActivoByHistoriaClinica(@Param("historiaClinica") String historiaClinica);
+
+    Optional<Paciente> findByPersona_NumeroDocumento(String numeroDocumento);
 }

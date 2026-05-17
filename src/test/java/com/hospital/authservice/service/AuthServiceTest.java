@@ -1,6 +1,5 @@
 package com.hospital.authservice.service;
 
-import static org.mockito.ArgumentMatchers.anyMap;
 import com.hospital.authservice.dto.*;
 import com.hospital.authservice.entity.*;
 import com.hospital.authservice.exception.AuthException;
@@ -34,46 +33,46 @@ class AuthServiceTest {
 
     @Mock
     private AuthenticationManager authenticationManager;
-    
+
     @Mock
     private JwtService jwtService;
-    
+
     @Mock
     private PasswordEncoder passwordEncoder;
-    
+
     @Mock
     private UsuarioRepository usuarioRepository;
-    
+
     @Mock
     private RefreshTokenRepository refreshTokenRepository;
-    
+
     @Mock
     private TokenBlacklistRepository tokenBlacklistRepository;
-    
+
     @Mock
     private RoleRepository roleRepository;
-    
+
     @Mock
     private PersonaRepository personaRepository;
-    
+
     @Mock
     private ProfesionalRepository profesionalRepository;
-    
+
     @Mock
     private PacienteRepository pacienteRepository;
-    
+
     @Mock
     private UserFactory userFactory;
-    
+
     @Mock
     private ConsentimientoRepository consentimientoRepository;
-    
+
     @Mock
     private TerminosCondicionesRepository terminosCondicionesRepository;
-    
+
     @InjectMocks
     private AuthService authService;
-    
+
     private LoginRequest loginRequest;
     private RegisterRequest registerRequest;
     private RefreshRequest refreshRequest;
@@ -81,14 +80,14 @@ class AuthServiceTest {
     private Usuario usuario;
     private Role role;
     private Persona persona;
-    
+
     @BeforeEach
     void setUp() {
         loginRequest = LoginRequest.builder()
                 .username("testuser")
                 .password("password123")
                 .build();
-        
+
         registerRequest = RegisterRequest.builder()
                 .username("newuser")
                 .password("Password123!")
@@ -103,22 +102,22 @@ class AuthServiceTest {
                 .versionTerminos(1)
                 .roles(List.of("ROLE_PACIENTE"))
                 .build();
-        
+
         refreshRequest = RefreshRequest.builder()
                 .refreshToken("refresh-token")
                 .build();
-        
+
         logoutRequest = LogoutRequest.builder()
                 .accessToken("access-token")
                 .refreshToken("refresh-token")
                 .build();
-        
+
         role = Role.builder()
                 .id(1L)
                 .nombre("ROLE_PACIENTE")
                 .activo(true)
                 .build();
-        
+
         persona = Persona.builder()
                 .id(1L)
                 .nombres("Juan")
@@ -127,7 +126,7 @@ class AuthServiceTest {
                 .numeroDocumento("12345678")
                 .activo(true)
                 .build();
-        
+
         usuario = Usuario.builder()
                 .id(1L)
                 .username("testuser")
@@ -139,25 +138,34 @@ class AuthServiceTest {
                 .roles(Set.of(role))
                 .build();
     }
-    
+
     @Test
     void testLoginSuccess() {
         // Given
         Authentication authentication = mock(Authentication.class);
-        when(authentication.getPrincipal()).thenReturn(usuario);
-        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
-                .thenReturn(authentication);
-        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("access-token");
 
-        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("refresh-token");
+        when(authentication.getPrincipal()).thenReturn(usuario);
+
+        when(authenticationManager.authenticate(
+                any(UsernamePasswordAuthenticationToken.class)))
+                .thenReturn(authentication);
+
+        when(jwtService.generateToken(anyMap(), any(UserDetails.class)))
+                .thenReturn("access-token");
+
+        when(jwtService.generateRefreshToken(
+                anyMap(),
+                any(UserDetails.class),
+                anyString()))
+                .thenReturn("refresh-token");
+
         when(jwtService.getJwtExpiration()).thenReturn(900L);
+
         when(jwtService.getRefreshExpiration()).thenReturn(604800L);
-        
+
         // When
         AuthResponse response = authService.login(loginRequest);
-        
+
         // Then
         assertNotNull(response);
         assertEquals("access-token", response.getAccessToken());
@@ -165,83 +173,109 @@ class AuthServiceTest {
         assertEquals("Bearer", response.getTokenType());
         assertEquals(900L, response.getExpiresIn());
         assertEquals("Login exitoso", response.getMessage());
-        
-        verify(usuarioRepository).actualizarUltimoLogin(eq(1L), any(LocalDateTime.class));
-        verify(refreshTokenRepository).save(any(RefreshToken.class));
-        verify(refreshTokenRepository).revocarTodosTokensUsuario(usuario);
+
+        verify(usuarioRepository)
+                .actualizarUltimoLogin(eq(1L), any(LocalDateTime.class));
+
+        verify(refreshTokenRepository)
+                .save(any(RefreshToken.class));
+
+        verify(refreshTokenRepository)
+                .revocarTodosTokensUsuario(usuario);
     }
-    
+
     @Test
     void testLoginFailure() {
         // Given
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
                 .thenThrow(new BadCredentialsException("Credenciales inválidas"));
-        when(usuarioRepository.findByUsername("testuser")).thenReturn(Optional.of(usuario));
-        
+        when(usuarioRepository.findByUsername(anyString()))
+                .thenReturn(Optional.of(usuario));
+
         // When & Then
         assertThrows(AuthException.class, () -> authService.login(loginRequest));
-        
+
         verify(usuarioRepository).actualizarIntentosFallidos(eq(1L), eq(1));
     }
-    
+
     @Test
     void testRegisterSuccess() {
         // Given
         com.hospital.authservice.factory.User userCreator = mock(com.hospital.authservice.factory.User.class);
-        when(userFactory.isSupportedUserType("PACIENTE")).thenReturn(true);
-        when(userFactory.createUser("PACIENTE")).thenReturn(userCreator);
-        when(userCreator.crearUsuario(registerRequest)).thenReturn(usuario);
-        when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
-        when(usuarioRepository.save(any(Usuario.class))).thenReturn(usuario);
-        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("access-token");
 
-        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("refresh-token");when(jwtService.getJwtExpiration()).thenReturn(900L);
+        when(userFactory.isSupportedUserType("PACIENTE"))
+                .thenReturn(true);
+
+        when(userFactory.createUser("PACIENTE"))
+                .thenReturn(userCreator);
+
+        when(userCreator.crearUsuario(registerRequest))
+                .thenReturn(usuario);
+
+        when(passwordEncoder.encode(anyString()))
+                .thenReturn("encodedPassword");
+
+        when(usuarioRepository.save(any(Usuario.class)))
+                .thenReturn(usuario);
+
+        when(jwtService.generateToken(anyMap(), any(UserDetails.class)))
+                .thenReturn("access-token");
+
+        when(jwtService.generateRefreshToken(
+                anyMap(),
+                any(UserDetails.class),
+                anyString()))
+                .thenReturn("refresh-token");
+
+        when(jwtService.getJwtExpiration()).thenReturn(900L);
+
         when(jwtService.getRefreshExpiration()).thenReturn(604800L);
-        
+
         // When
         AuthResponse response = authService.register(registerRequest);
-        
+
         // Then
         assertNotNull(response);
         assertEquals("access-token", response.getAccessToken());
         assertEquals("refresh-token", response.getRefreshToken());
         assertEquals("Registro exitoso", response.getMessage());
-        
+
         verify(usuarioRepository).save(any(Usuario.class));
         verify(refreshTokenRepository).save(any(RefreshToken.class));
     }
-    
+
     @Test
     void testRegisterUsernameAlreadyExists() {
         // Given
-        when(usuarioRepository.existsByUsername("newuser")).thenReturn(true);
-        
+        when(usuarioRepository.existsByUsername(anyString()))
+                .thenReturn(true);
+
         // When & Then
         assertThrows(AuthException.class, () -> authService.register(registerRequest));
     }
-    
+
     @Test
     void testRegisterEmailAlreadyExists() {
         // Given
-        when(usuarioRepository.existsByUsername("newuser")).thenReturn(false);
-        when(usuarioRepository.existsByEmail("newuser@test.com")).thenReturn(true);
-        
+        when(usuarioRepository.existsByUsername(anyString()))
+                .thenReturn(false);
+
+        when(usuarioRepository.existsByEmail(anyString()))
+                .thenReturn(true);
         // When & Then
         assertThrows(AuthException.class, () -> authService.register(registerRequest));
     }
-    
+
     @Test
     void testRegisterUnsupportedUserType() {
         // Given
         registerRequest.setTipoUsuario("UNSUPPORTED");
         when(userFactory.isSupportedUserType("UNSUPPORTED")).thenReturn(false);
-        
+
         // When & Then
         assertThrows(AuthException.class, () -> authService.register(registerRequest));
     }
-    
+
     @Test
     void testRefreshTokenSuccess() {
         // Given
@@ -253,37 +287,45 @@ class AuthServiceTest {
                 .revocado(false)
                 .usado(false)
                 .build();
-        
-        when(refreshTokenRepository.findByToken("refresh-token")).thenReturn(Optional.of(refreshToken));
-        when(jwtService.generateToken(any(UserDetails.class))).thenReturn("new-access-token");
-        when(jwtService.generateToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("new-access-token");
 
-        when(jwtService.generateRefreshToken(anyMap(), any(UserDetails.class), anyString()))
-        .thenReturn("new-refresh-token");
+        when(refreshTokenRepository.findByToken("refresh-token"))
+                .thenReturn(Optional.of(refreshToken));
+
+        when(jwtService.generateToken(
+                anyMap(),
+                any(UserDetails.class)))
+                .thenReturn("new-access-token");
+
+        when(jwtService.generateRefreshToken(
+                anyMap(),
+                any(UserDetails.class),
+                anyString()))
+                .thenReturn("new-refresh-token");
+
         // When
         AuthResponse response = authService.refreshToken(refreshRequest);
-        
+
         // Then
         assertNotNull(response);
         assertEquals("new-access-token", response.getAccessToken());
         assertEquals("new-refresh-token", response.getRefreshToken());
         assertEquals("Token refrescado exitosamente", response.getMessage());
-        
+
         assertTrue(refreshToken.getUsado());
-        verify(refreshTokenRepository).save(refreshToken);
-        verify(refreshTokenRepository).save(any(RefreshToken.class));
+
+        verify(refreshTokenRepository, times(2))
+                .save(any(RefreshToken.class));
     }
-    
+
     @Test
     void testRefreshTokenNotFound() {
         // Given
         when(refreshTokenRepository.findByToken("refresh-token")).thenReturn(Optional.empty());
-        
+
         // When & Then
         assertThrows(AuthException.class, () -> authService.refreshToken(refreshRequest));
     }
-    
+
     @Test
     void testRefreshTokenExpired() {
         // Given
@@ -295,13 +337,13 @@ class AuthServiceTest {
                 .revocado(false)
                 .usado(false)
                 .build();
-        
+
         when(refreshTokenRepository.findByToken("refresh-token")).thenReturn(Optional.of(refreshToken));
-        
+
         // When & Then
         assertThrows(AuthException.class, () -> authService.refreshToken(refreshRequest));
     }
-    
+
     @Test
     void testLogoutSuccess() {
         // Given
@@ -315,30 +357,33 @@ class AuthServiceTest {
                 .usado(false)
                 .build();
         when(refreshTokenRepository.findByToken("refresh-token")).thenReturn(Optional.of(refreshToken));
-        
+
         // When
         ApiResponseDto<Void> response = authService.logout(logoutRequest);
-        
+
         // Then
         assertNotNull(response);
         assertTrue(response.getSuccess());
         assertEquals("Logout exitoso", response.getMessage());
-        
+
         verify(tokenBlacklistRepository).save(any(TokenBlacklist.class));
         assertTrue(refreshToken.getRevocado());
         verify(refreshTokenRepository).save(refreshToken);
     }
-    
+
     @Test
     void testLimpiarTokensExpirados() {
         // Given
         LocalDateTime ahora = LocalDateTime.now();
-        
+
         // When
         authService.limpiarTokensExpirados();
-        
+
         // Then
-        verify(refreshTokenRepository).eliminarTokensExpirados(ahora);
-        verify(tokenBlacklistRepository).eliminarTokensExpirados(ahora);
+        verify(refreshTokenRepository)
+                .eliminarTokensExpirados(any(LocalDateTime.class));
+
+        verify(tokenBlacklistRepository)
+                .eliminarTokensExpirados(any(LocalDateTime.class));
     }
 }

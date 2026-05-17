@@ -22,10 +22,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) {
-
-        String encryptedUsername = CryptoUtil.encrypt(username);
-
-        return usuarioRepository.findByUsername(encryptedUsername)
+        // El username ya viene encriptado desde AuthService.login()
+        return usuarioRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
     }
 }
