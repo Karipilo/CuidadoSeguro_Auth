@@ -71,7 +71,7 @@ public class TutorUser implements User {
 
         Tutor tutor = Tutor.builder()
                 .usuario(usuario)
-                .pacientes(pacientes.toString())
+                .pacientesRuts(pacientes)
                 .build();
 
         persona.setUsuario(usuario);

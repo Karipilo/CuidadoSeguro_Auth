@@ -25,69 +25,60 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 
-
 public class Usuario implements UserDetails {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "username", nullable = false, unique = true, length = 50)
-    @Convert(converter = CryptoConverter.class)
     private String username;
-    
+
     @Column(name = "password", nullable = false)
     private String password;
-    
+
     @Column(name = "email", nullable = false, unique = true, length = 100)
-    @Convert(converter = CryptoConverter.class)
     private String email;
 
-    
-    
     @Column(name = "activo", nullable = false)
     @Builder.Default
     private Boolean activo = true;
-    
+
     @Column(name = "no_bloqueado", nullable = false)
     @Builder.Default
     private Boolean noBloqueado = true;
-    
+
     @Column(name = "fecha_creacion", nullable = false)
     @Builder.Default
     private LocalDateTime fechaCreacion = LocalDateTime.now();
-    
+
     @Column(name = "fecha_actualizacion")
     private LocalDateTime fechaActualizacion;
-    
+
     @Column(name = "fecha_ultimo_login")
     private LocalDateTime fechaUltimoLogin;
-    
+
     @Column(name = "intentos_fallidos")
     @Builder.Default
     private Integer intentosFallidos = 0;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "persona_id", nullable = false)
     private Persona persona;
-    
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-        name = "usuario_rol",
-        joinColumns = @JoinColumn(name = "usuario_id"),
-        inverseJoinColumns = @JoinColumn(name = "rol_id")
-    )
+    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     @Builder.Default
     private Set<Role> roles = new HashSet<>();
-    
+
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Profesional profesional;
-    
+
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private Paciente paciente;
-    
+
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     @JsonIgnore
     private Tutor tutor;
@@ -96,39 +87,39 @@ public class Usuario implements UserDetails {
     protected void onUpdate() {
         fechaActualizacion = LocalDateTime.now();
     }
-    
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getNombre()))
+                .map(role -> new SimpleGrantedAuthority(role.getNombre()))
                 .collect(Collectors.toList());
     }
-    
+
     @Override
     public String getPassword() {
         return password;
     }
-    
+
     @Override
     public String getUsername() {
         return username;
     }
-    
+
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-    
+
     @Override
     public boolean isAccountNonLocked() {
         return noBloqueado;
     }
-    
+
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-    
+
     @Override
     public boolean isEnabled() {
         return activo;

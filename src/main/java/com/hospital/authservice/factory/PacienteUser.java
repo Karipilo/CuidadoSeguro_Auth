@@ -58,7 +58,7 @@ public class PacienteUser implements User {
                 .build();
         
         Paciente paciente = Paciente.builder()
-                .historiaClinica(request.getHistoriaClinica())
+                .historiaClinica("HC-" + System.currentTimeMillis())
                 .grupoSanguineo(request.getGrupoSanguineo())
                 .factorRh(request.getFactorRh())
                 .alergias(request.getAlergias())
@@ -81,9 +81,7 @@ public class PacienteUser implements User {
     @Override
     public void validarDatosEspecificos(RegisterRequest request) {
         // Validaciones específicas para pacientes
-        if (request.getHistoriaClinica() == null || request.getHistoriaClinica().trim().isEmpty()) {
-            throw new IllegalArgumentException("La historia clínica es obligatoria para pacientes");
-        }
+        
         
         boolean tieneRolePaciente = request.getRoles().stream()
                 .anyMatch(role -> role.equals("ROLE_PACIENTE"));

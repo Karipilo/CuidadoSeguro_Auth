@@ -1,16 +1,13 @@
 package com.hospital.authservice.repository;
 
-import com.hospital.authservice.entity.Paciente;
+import com.hospital.authservice.entity.Tutor;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
-
 @Repository
-public interface TutorRepository extends JpaRepository<Paciente, Long> {
-    
-    
+public interface TutorRepository
+        extends JpaRepository<Tutor, Long> {
+
 }

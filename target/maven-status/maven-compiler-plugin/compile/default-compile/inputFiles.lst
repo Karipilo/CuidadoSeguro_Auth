@@ -1,44 +1,48 @@
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\RefreshToken.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\PacienteUser.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\RegisterRequest.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\AdminUser.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\ConsentimientoRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\ProfesionalUser.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Persona.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\TerminosCondicionesRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\TokenBlacklistRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\security\JwtAuthenticationEntryPoint.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\AuthServiceApplication.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\service\AuthServiceWithCircuitBreaker.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\config\Resilience4jConfig.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\RefreshTokenRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\UserFactory.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\security\CustomUserDetailsService.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\AuthResponse.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\TutorUser.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\TerminosCondiciones.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Profesional.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\LogoutRequest.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Tutor.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\security\JwtService.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\PacienteRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Consentimiento.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\ProfesionalRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\service\AuthService.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\factory\User.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\config\OpenApiConfig.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Role.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\security\JwtAuthenticationFilter.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Paciente.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\TutorRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\ApiResponseDto.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\PersonaRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\TokenBlacklist.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\RoleRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\repository\UsuarioRepository.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\RefreshRequest.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\controller\AuthController.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\exception\AuthException.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\security\SecurityConfig.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\dto\LoginRequest.java
-C:\Users\edgam\OneDrive\Documentos\GitHub\CuidadoSeguro_Auth\src\main\java\com\hospital\authservice\entity\Usuario.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\ProfesionalRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\TokenBlacklist.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\PacienteUser.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\User.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\ApiResponseDto.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\TutorUser.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Paciente.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\security\JwtAuthenticationFilter.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\RefreshToken.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\RegisterRequest.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Role.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\TerminosCondiciones.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\security\JwtAuthenticationEntryPoint.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Tutor.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\PacienteMicroDto.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\utils\CryptoConverter.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\PacienteRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\controller\PacienteController.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\LoginRequest.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\AuthServiceApplication.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\TokenBlacklistRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\utils\CryptoUtil.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\security\SecurityConfig.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\AuthResponse.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\LogoutRequest.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\config\OpenApiConfig.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\UsuarioRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\ProfesionalUser.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\PersonaRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\ConsentimientoRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Profesional.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Usuario.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\exception\AuthException.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\dto\RefreshRequest.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\config\JacksonConfig.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Consentimiento.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\AdminUser.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\config\RestTemplateConfig.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\security\JwtService.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\security\CustomUserDetailsService.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\controller\AuthController.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\TerminosCondicionesRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\RoleRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\entity\Persona.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\service\AuthService.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\factory\UserFactory.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\TutorRepository.java
+C:\Users\karip\OneDrive\Escritorio\Proyecto Cuidado Seguro\CuidadoSeguro_Auth-main\src\main\java\com\hospital\authservice\repository\RefreshTokenRepository.java

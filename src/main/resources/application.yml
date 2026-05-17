@@ -7,6 +7,9 @@ server:
     include-binding-errors: always
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
+
   application:
     name: auth-service
   
@@ -25,7 +28,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
@@ -39,7 +42,7 @@ spring:
 
   sql:
     init:
-      mode: never
+      mode: always
 
   # Configuración de Resilience4j
   resilience4j:
@@ -85,7 +88,7 @@ spring:
 # Configuración JWT
 jwt:
   secret: miClaveSecretaMuyLargaYSeguraParaJWT1234567890ABCDEF
-  expiration: 900 # 15 minutos en segundos
+  expiration: 86400 # lo cambie a 24 horas mientras programo, despues modificar a 900 que son 15 minutos en segundos
   refresh-expiration: 604800 # 7 días en segundos
 
 # Configuración de logging
