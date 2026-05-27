@@ -350,7 +350,18 @@ public class AuthService {
                     claims,
                     usuario);
 
-            
+            // Headers con token
+            HttpHeaders headers = new HttpHeaders();
+            headers.set("Authorization", "Bearer " + accessToken);
+
+            HttpEntity<PacienteMicroDto> entity = new HttpEntity<>(pacienteDto, headers);
+
+            // Llamada al microservicio pacientes
+            restTemplate.exchange(
+                    "http://localhost:8082/pacientes",
+                    HttpMethod.POST,
+                    entity,
+                    Object.class);
         }
 
         // Guardar consentimiento de términos y condiciones

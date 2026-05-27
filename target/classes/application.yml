@@ -42,7 +42,7 @@ spring:
 
   sql:
     init:
-      mode: never
+      mode: always
 
   # Configuración de Resilience4j
   resilience4j:

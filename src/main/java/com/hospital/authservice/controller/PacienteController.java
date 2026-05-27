@@ -17,8 +17,10 @@ public class PacienteController {
     public ResponseEntity<?> obtenerPorRut(
             @PathVariable String rut) {
 
-        
-        Paciente paciente = pacienteRepository.findByPersona_NumeroDocumento(rut).orElseThrow(() -> new RuntimeException("Paciente no encontrado"));
+        Paciente paciente = pacienteRepository
+                .findByPersona_NumeroDocumento(rut)
+                .orElseThrow(() -> new RuntimeException(
+                        "Paciente no encontrado"));
 
         return ResponseEntity.ok(paciente);
     }
