@@ -9,8 +9,7 @@ import com.hospital.authservice.security.JwtService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,7 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -176,6 +177,9 @@ public class AuthService {
                             usuario.getPersona().getNombres()
                                     + " "
                                     + usuario.getPersona().getApellidos())
+                    .telefono(usuario.getPersona().getTelefono())
+                    .direccion(usuario.getPersona().getDireccion())
+                    .genero(usuario.getPersona().getGenero())
                     .tipoUsuario(determinarTipoUsuario(usuario))
 
                     .pacientesRuts(
@@ -342,6 +346,11 @@ public class AuthService {
             pacienteDto.setNombre(request.getNombres());
             pacienteDto.setApellido(request.getApellidos());
             pacienteDto.setEmail(request.getEmail());
+            pacienteDto.setAlergias(request.getAlergias());
+            pacienteDto.setDireccion(request.getDireccion());
+            pacienteDto.setTelefono(request.getTelefono());
+            pacienteDto.setGenero(request.getGenero());
+            pacienteDto.setFechaNacimiento(request.getFechaNacimiento());
 
             // Generar token JWT para enviar al microservicio
             Map<String, Object> claims = new HashMap<>();
@@ -350,7 +359,58 @@ public class AuthService {
                     claims,
                     usuario);
 
-            
+            // Headers con token
+            HttpHeaders headers = new HttpHeaders();
+
+            headers.setBearerAuth(accessToken);
+
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            headers.setAccept(List.of(
+                    MediaType.APPLICATION_JSON
+            ));
+            HttpEntity<PacienteMicroDto> entity = new HttpEntity<>(pacienteDto, headers);
+
+            log.info("ANTES DE PACIENTES");
+
+            restTemplate.exchange(
+                    "http://localhost:8082/pacientes",
+                    HttpMethod.POST,
+                    entity,
+                    Object.class);
+
+            log.info("DESPUÉS DE PACIENTES");
+            FichaClinicaMicroDto fichaDto = new FichaClinicaMicroDto();
+
+            fichaDto.setNombrePaciente(
+                    request.getNombres() + " "
+                            + request.getApellidos());
+
+            fichaDto.setRutPaciente(
+                    request.getNumeroDocumento());
+
+            fichaDto.setEdad(
+                    calcularEdad(
+                            request.getFechaNacimiento()));
+
+            fichaDto.setDiagnostico(
+                    request.getEnfermedadesCronicas());
+
+            fichaDto.setAlergias(
+                    request.getAlergias());
+
+            fichaDto.setObservaciones("");
+
+            fichaDto.setGenero(
+                    request.getGenero());
+
+            HttpEntity<FichaClinicaMicroDto> fichaEntity = new HttpEntity<>(fichaDto, headers);
+
+            restTemplate.exchange(
+                    "http://localhost:8083/fichas",
+                    HttpMethod.POST,
+                    fichaEntity,
+                    Object.class);
         }
 
         // Guardar consentimiento de términos y condiciones
@@ -399,6 +459,9 @@ public class AuthService {
                 .username(usuario.getUsername())
                 .email(usuario.getEmail())
                 .nombreCompleto(usuario.getPersona().getNombres() + " " + usuario.getPersona().getApellidos())
+                .telefono(usuario.getPersona().getTelefono())
+                .direccion(usuario.getPersona().getDireccion())
+                .genero(usuario.getPersona().getGenero())
                 .tipoUsuario(request.getTipoUsuario())
                 .pacientesRuts(
                         usuario.getTutor() != null
@@ -476,6 +539,9 @@ public class AuthService {
                 .username(usuario.getUsername())
                 .email(usuario.getEmail())
                 .nombreCompleto(usuario.getPersona().getNombres() + " " + usuario.getPersona().getApellidos())
+                .telefono(usuario.getPersona().getTelefono())
+                .direccion(usuario.getPersona().getDireccion())
+                .genero(usuario.getPersona().getGenero())
                 .tipoUsuario(determinarTipoUsuario(usuario))
                 .pacientesRuts(
                         usuario.getTutor() != null
@@ -565,5 +631,16 @@ public class AuthService {
         } else {
             return "ADMIN";
         }
+    }
+
+    private Integer calcularEdad(LocalDate fechaNacimiento) {
+
+        if (fechaNacimiento == null) {
+            return 0;
+        }
+
+        return Period
+                .between(fechaNacimiento, LocalDate.now())
+                .getYears();
     }
 }

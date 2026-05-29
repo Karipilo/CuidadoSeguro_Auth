@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.hospital.authservice.controller.AuthControllerTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 3, Errors: 4, Skipped: 0, Time elapsed: 9.874 s <<< FAILURE! -- in com.hospital.authservice.controller.AuthControllerTest
-com.hospital.authservice.controller.AuthControllerTest.testLogoutBadRequest -- Time elapsed: 8.695 s <<< ERROR!
+Tests run: 11, Failures: 3, Errors: 4, Skipped: 0, Time elapsed: 9.026 s <<< FAILURE! -- in com.hospital.authservice.controller.AuthControllerTest
+com.hospital.authservice.controller.AuthControllerTest.testLogoutBadRequest -- Time elapsed: 7.982 s <<< ERROR!
 org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
 
 Unnecessary stubbings detected.
@@ -14,7 +14,7 @@ Please remove unnecessary stubbings or use 'lenient' strictness. More info: java
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
-com.hospital.authservice.controller.AuthControllerTest.testLoginUnauthorized -- Time elapsed: 0.064 s <<< ERROR!
+com.hospital.authservice.controller.AuthControllerTest.testLoginUnauthorized -- Time elapsed: 0.046 s <<< ERROR!
 jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeException: Credenciales inválidas
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
@@ -45,7 +45,7 @@ Caused by: java.lang.RuntimeException: Credenciales inválidas
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
 	... 12 more
 
-com.hospital.authservice.controller.AuthControllerTest.testRegisterBadRequest -- Time elapsed: 0.185 s <<< ERROR!
+com.hospital.authservice.controller.AuthControllerTest.testRegisterBadRequest -- Time elapsed: 0.137 s <<< ERROR!
 org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
 
 Unnecessary stubbings detected.
@@ -57,7 +57,7 @@ Please remove unnecessary stubbings or use 'lenient' strictness. More info: java
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
-com.hospital.authservice.controller.AuthControllerTest.testRefreshTokenUnauthorized -- Time elapsed: 0.048 s <<< ERROR!
+com.hospital.authservice.controller.AuthControllerTest.testRefreshTokenUnauthorized -- Time elapsed: 0.053 s <<< ERROR!
 jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeException: Refresh token inválido
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
@@ -73,7 +73,7 @@ jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeEx
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.RuntimeException: Refresh token inválido
-	at com.hospital.authservice.service.AuthService.refreshToken(AuthService.java:438)
+	at com.hospital.authservice.service.AuthService.refreshToken(AuthService.java:427)
 	at com.hospital.authservice.controller.AuthController.refresh(AuthController.java:82)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -88,7 +88,7 @@ Caused by: java.lang.RuntimeException: Refresh token inválido
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
 	... 12 more
 
-com.hospital.authservice.controller.AuthControllerTest.testValidateTokenInvalid -- Time elapsed: 0.039 s <<< FAILURE!
+com.hospital.authservice.controller.AuthControllerTest.testValidateTokenInvalid -- Time elapsed: 0.028 s <<< FAILURE!
 java.lang.AssertionError: Status expected:<401> but was:<400>
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
 	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
@@ -99,7 +99,7 @@ java.lang.AssertionError: Status expected:<401> but was:<400>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
-com.hospital.authservice.controller.AuthControllerTest.testValidateTokenSuccess -- Time elapsed: 0.035 s <<< FAILURE!
+com.hospital.authservice.controller.AuthControllerTest.testValidateTokenSuccess -- Time elapsed: 0.017 s <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<400>
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
 	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
@@ -110,7 +110,7 @@ java.lang.AssertionError: Status expected:<200> but was:<400>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
-com.hospital.authservice.controller.AuthControllerTest.testHealthCheck -- Time elapsed: 0.046 s <<< FAILURE!
+com.hospital.authservice.controller.AuthControllerTest.testHealthCheck -- Time elapsed: 0.029 s <<< FAILURE!
 java.lang.AssertionError: JSON path "$.data" expected:<Auth service is running> but was:<OK>
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
 	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)

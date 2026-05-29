@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.hospital.authservice.factory.TutorUserTest
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.301 s <<< FAILURE! -- in com.hospital.authservice.factory.TutorUserTest
-com.hospital.authservice.factory.TutorUserTest.testCrearUsuarioPersonaFields -- Time elapsed: 0.005 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: java.lang.String@a4aecc3<1975-03-20> but was: java.time.LocalDate@59f59a0a<1975-03-20>
+Tests run: 14, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.278 s <<< FAILURE! -- in com.hospital.authservice.factory.TutorUserTest
+com.hospital.authservice.factory.TutorUserTest.testCrearUsuarioPersonaFields -- Time elapsed: 0.002 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.String@2ba7828b<1975-03-20> but was: java.time.LocalDate@3e6945c6<1975-03-20>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
@@ -15,7 +15,7 @@ org.opentest4j.AssertionFailedError: expected: java.lang.String@a4aecc3<1975-03-
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
-com.hospital.authservice.factory.TutorUserTest.testCrearUsuarioEmptyPacientesRuts -- Time elapsed: 0.009 s <<< ERROR!
+com.hospital.authservice.factory.TutorUserTest.testCrearUsuarioEmptyPacientesRuts -- Time elapsed: 0.006 s <<< ERROR!
 org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
 
 Unnecessary stubbings detected.

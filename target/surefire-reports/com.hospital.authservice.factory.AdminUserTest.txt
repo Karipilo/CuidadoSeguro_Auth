@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.hospital.authservice.factory.AdminUserTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.352 s <<< FAILURE! -- in com.hospital.authservice.factory.AdminUserTest
-com.hospital.authservice.factory.AdminUserTest.testCrearUsuarioPersonaFields -- Time elapsed: 0.012 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: java.lang.String@5259469d<1990-01-01> but was: java.time.LocalDate@18c8a027<1990-01-01>
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.198 s <<< FAILURE! -- in com.hospital.authservice.factory.AdminUserTest
+com.hospital.authservice.factory.AdminUserTest.testCrearUsuarioPersonaFields -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: java.lang.String@61a809ee<1990-01-01> but was: java.time.LocalDate@3ec6bc6f<1990-01-01>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
