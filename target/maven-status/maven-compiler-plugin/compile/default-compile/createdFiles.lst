@@ -34,6 +34,8 @@ com\hospital\authservice\dto\ApiResponseDto.class
 com\hospital\authservice\dto\AuthResponse$AuthResponseBuilder.class
 com\hospital\authservice\controller\PacienteController.class
 com\hospital\authservice\entity\TerminosCondiciones.class
+com\hospital\authservice\service\AuthServiceWithCircuitBreaker.class
+com\hospital\authservice\config\Resilience4jConfig.class
 com\hospital\authservice\config\OpenApiConfig.class
 com\hospital\authservice\dto\AuthResponse$UserInfo.class
 com\hospital\authservice\controller\AuthController.class

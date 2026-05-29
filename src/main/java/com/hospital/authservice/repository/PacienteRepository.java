@@ -15,6 +15,7 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     List<Paciente> findByPersonaNumeroDocumentoIn(List<String> ruts);
 
 
+    
     Optional<Paciente> findByHistoriaClinica(String historiaClinica);
     
     boolean existsByHistoriaClinica(String historiaClinica);
