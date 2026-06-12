@@ -1,0 +1,32 @@
+# Target (Maven build output)
+target/
+work/
+bin/
+
+# Logs y volcados de memoria (crashes de JVM)
+*.log
+logs/
+hs_err_pid*
+replay_pid*
+
+# Configuraciones de IDEs
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.classpath
+.project
+.metadata/
+.recommenders/
+
+# Archivos de sistema operativo
+Thumbs.db
+db.properties
+.DS_Store
+
+# Archivos temporales generados en el directorio raíz
+effective-pom
+effective-pom.xml
+bodys.json

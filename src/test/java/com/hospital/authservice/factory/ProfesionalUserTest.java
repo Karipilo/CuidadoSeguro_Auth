@@ -53,6 +53,7 @@ class ProfesionalUserTest {
                 .roles(List.of("ROLE_PROFESIONAL"))
                 .numeroLicencia("LIC-12345")
                 .especialidad("Cardiología")
+                .profesion("Médico")
                 .universidad("Universidad de Chile")
                 .anioGraduacion(2010)
                 .build();

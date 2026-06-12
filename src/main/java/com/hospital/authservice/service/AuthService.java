@@ -181,6 +181,7 @@ public class AuthService {
                     .direccion(usuario.getPersona().getDireccion())
                     .genero(usuario.getPersona().getGenero())
                     .tipoUsuario(determinarTipoUsuario(usuario))
+                    .profesion(usuario.getProfesional() != null ? usuario.getProfesional().getProfesion() : null)
 
                     .pacientesRuts(
                             usuario.getTutor() != null
@@ -463,6 +464,7 @@ public class AuthService {
                 .direccion(usuario.getPersona().getDireccion())
                 .genero(usuario.getPersona().getGenero())
                 .tipoUsuario(request.getTipoUsuario())
+                .profesion(usuario.getProfesional() != null ? usuario.getProfesional().getProfesion() : null)
                 .pacientesRuts(
                         usuario.getTutor() != null
                                 ? usuario.getTutor().getPacientesRuts()
