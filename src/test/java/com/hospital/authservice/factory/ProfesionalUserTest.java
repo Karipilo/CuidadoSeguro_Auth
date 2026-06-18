@@ -103,7 +103,7 @@ class ProfesionalUserTest {
         assertEquals(2010, usuario.getProfesional().getAnioGraduacion());
         assertEquals(15, usuario.getProfesional().getExperienciaAnios());
         assertEquals("Hospital Clinico", usuario.getProfesional().getInstitucion());
-        assertEquals(40, usuario.getProfesional().getHorasSemanales());
+        assertEquals("40", usuario.getProfesional().getHorasSemanales());
     }
 
     @Test
@@ -148,8 +148,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("El número de licencia es obligatorio para médicos", exception.getMessage());
     }
 
@@ -161,8 +160,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("El número de licencia es obligatorio para médicos", exception.getMessage());
     }
 
@@ -174,8 +172,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("La especialidad es obligatoria para médicos", exception.getMessage());
     }
 
@@ -187,8 +184,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("La especialidad es obligatoria para médicos", exception.getMessage());
     }
 
@@ -200,8 +196,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("La universidad de graduación es obligatoria para médicos", exception.getMessage());
     }
 
@@ -213,8 +208,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("La universidad de graduación es obligatoria para médicos", exception.getMessage());
     }
 
@@ -226,8 +220,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("El año de graduación no es válido", exception.getMessage());
     }
 
@@ -239,8 +232,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("El año de graduación no es válido", exception.getMessage());
     }
 
@@ -261,8 +253,7 @@ class ProfesionalUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> profesionalUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> profesionalUser.validarDatosEspecificos(registerRequest));
         assertEquals("El usuario médico debe tener el rol ROLE_PROFESIONAL", exception.getMessage());
     }
 
@@ -302,7 +293,7 @@ class ProfesionalUserTest {
         assertEquals("Gomez", usuario.getPersona().getApellidos());
         assertEquals("DNI", usuario.getPersona().getTipoDocumento());
         assertEquals("87654321", usuario.getPersona().getNumeroDocumento());
-        assertEquals("1985-05-15", usuario.getPersona().getFechaNacimiento());
+        assertEquals(LocalDate.of(1985, 5, 15),usuario.getPersona().getFechaNacimiento());
         assertEquals("M", usuario.getPersona().getGenero());
         assertEquals("987654321", usuario.getPersona().getTelefono());
         assertEquals("Calle Test 123", usuario.getPersona().getDireccion());
