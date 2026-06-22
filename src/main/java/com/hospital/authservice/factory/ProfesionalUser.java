@@ -59,6 +59,7 @@ public class ProfesionalUser implements User {
         
         Profesional profesional = Profesional.builder()
                 .numeroLicencia(request.getNumeroLicencia())
+                .profesion(request.getProfesion())
                 .especialidad(request.getEspecialidad())
                 .subespecialidad(request.getSubespecialidad())
                 .universidad(request.getUniversidad())
@@ -80,6 +81,10 @@ public class ProfesionalUser implements User {
     @Override
     public void validarDatosEspecificos(RegisterRequest request) {
         // Validaciones específicas para médicos
+        if (request.getProfesion() == null || request.getProfesion().trim().isEmpty()) {
+            throw new IllegalArgumentException("La profesión es obligatoria para profesionales");
+        }
+        
         if (request.getNumeroLicencia() == null || request.getNumeroLicencia().trim().isEmpty()) {
             throw new IllegalArgumentException("El número de licencia es obligatorio para médicos");
         }

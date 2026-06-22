@@ -52,6 +52,9 @@ public class AuthResponse {
 
         @Schema(description = "Tipo de usuario", example = "PACIENTE")
         private String tipoUsuario;
+        
+        @Schema(description = "Profesión del profesional", example = "Médico")
+        private String profesion;
 
         private List<String> pacientesRuts;
 

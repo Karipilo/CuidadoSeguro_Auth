@@ -1,53 +1,18 @@
-# Maven
 target/
 !target/*.jar
-!target/*.war
-
-# IDE
-.idea/
-*.iws
-*.iml
-*.ipr
-.vscode/
-.settings/
-.project
-.classpath
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-logs/
-*.log
-
-# Git
-.git/
+.git
 .gitignore
-
-# Docker
-Dockerfile
-docker-compose*.yml
-.dockerignore
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Test
-test/
-**/*Test.java
-**/*Tests.java
-
-# Documentation
-README.md
-docs/
-
-# CI/CD
-.github/
-
-# Temporary files
-*.tmp
-*.temp
-*~
+.mvn
+*.md
+*.log
+*.iml
+.idea/
+.vscode/
+hs_err_pid*
+replay_pid*
+app.log
+logs/
+effective-pom
+effective-pom.xml
+bodys.json
+test_*.ps1

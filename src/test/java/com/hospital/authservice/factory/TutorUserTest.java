@@ -43,6 +43,7 @@ class TutorUserTest {
 
     @BeforeEach
     void setUp() {
+
         role = Role.builder()
                 .id(1L)
                 .nombre("ROLE_TUTOR")
@@ -61,6 +62,8 @@ class TutorUserTest {
                 .roles(List.of("ROLE_TUTOR"))
                 .pacientesRuts(List.of("12345678", "87654321"))
                 .build();
+
+        lenient().when(roleRepository.findByNombre("ROLE_TUTOR")).thenReturn(Optional.of(role));
     }
 
     @Test
@@ -105,22 +108,30 @@ class TutorUserTest {
 
     @Test
     void testCrearUsuarioRoleNotFound() {
-        // Given
-        when(roleRepository.findByNombre("ROLE_TUTOR")).thenReturn(Optional.empty());
 
-        // When & Then
-        assertThrows(RuntimeException.class, () -> tutorUser.crearUsuario(registerRequest));
-        verify(roleRepository).findByNombre("ROLE_TUTOR");
+        when(roleRepository.findByNombre("ROLE_TUTOR"))
+                .thenReturn(Optional.empty());
+
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> tutorUser.crearUsuario(registerRequest));
+
+        assertEquals(
+                "Rol no encontrado: ROLE_TUTOR",
+                exception.getMessage());
     }
 
     @Test
     void testCrearUsuarioEmptyPacientesRuts() {
-        // Given
-        when(roleRepository.findByNombre("ROLE_TUTOR")).thenReturn(Optional.of(role));
+
         registerRequest.setPacientesRuts(List.of());
 
-        // When & Then
-        assertThrows(RuntimeException.class, () -> tutorUser.crearUsuario(registerRequest));
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> tutorUser.crearUsuario(registerRequest));
+
+        assertEquals(
+                "Debe asociar al menos un paciente",
+                exception.getMessage());
     }
 
     @Test
@@ -140,8 +151,7 @@ class TutorUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> tutorUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> tutorUser.validarDatosEspecificos(registerRequest));
         assertEquals("Debe asociar al menos un paciente", exception.getMessage());
     }
 
@@ -153,8 +163,7 @@ class TutorUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> tutorUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> tutorUser.validarDatosEspecificos(registerRequest));
         assertEquals("Debe asociar al menos un paciente", exception.getMessage());
     }
 
@@ -166,8 +175,7 @@ class TutorUserTest {
         // When & Then
         IllegalArgumentException exception = assertThrows(
                 IllegalArgumentException.class,
-                () -> tutorUser.validarDatosEspecificos(registerRequest)
-        );
+                () -> tutorUser.validarDatosEspecificos(registerRequest));
         assertEquals("Debe incluir ROLE_TUTOR", exception.getMessage());
     }
 
@@ -207,7 +215,10 @@ class TutorUserTest {
         assertEquals("Rodriguez", usuario.getPersona().getApellidos());
         assertEquals("DNI", usuario.getPersona().getTipoDocumento());
         assertEquals("11111111", usuario.getPersona().getNumeroDocumento());
-        assertEquals("1975-03-20", usuario.getPersona().getFechaNacimiento());
+        assertEquals(
+        LocalDate.of(1975, 3, 20),
+        usuario.getPersona().getFechaNacimiento()
+);
         assertEquals("F", usuario.getPersona().getGenero());
         assertEquals("555555555", usuario.getPersona().getTelefono());
         assertEquals("Avenida Tutor 456", usuario.getPersona().getDireccion());
@@ -217,7 +228,8 @@ class TutorUserTest {
     @Test
     void testCrearUsuarioTutorFields() {
         // Given
-        when(roleRepository.findByNombre("ROLE_TUTOR")).thenReturn(Optional.of(role));
+        lenient().when(roleRepository.findByNombre("ROLE_TUTOR"))
+         .thenReturn(Optional.of(role));
 
         // When
         Usuario usuario = tutorUser.crearUsuario(registerRequest);

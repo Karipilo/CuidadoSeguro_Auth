@@ -23,6 +23,9 @@ public class Profesional {
     @Column(name = "numero_licencia", nullable = false, unique = true, length = 50)
     private String numeroLicencia;
     
+    @Column(name = "profesion", nullable = false, length = 100)
+    private String profesion;
+    
     @Column(name = "especialidad", nullable = false, length = 100)
     private String especialidad;
     

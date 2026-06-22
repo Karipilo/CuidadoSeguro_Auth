@@ -3,6 +3,7 @@ com\hospital\authservice\factory\User.class
 com\hospital\authservice\dto\LogoutRequest.class
 com\hospital\authservice\dto\LogoutRequest$LogoutRequestBuilder.class
 com\hospital\authservice\repository\UsuarioRepository.class
+com\hospital\authservice\dto\FichaClinicaMicroDto.class
 com\hospital\authservice\repository\RoleRepository.class
 com\hospital\authservice\entity\RefreshToken.class
 com\hospital\authservice\dto\LoginRequest.class
@@ -49,6 +50,7 @@ com\hospital\authservice\entity\Consentimiento.class
 com\hospital\authservice\dto\RegisterRequest$RegisterRequestBuilder.class
 com\hospital\authservice\factory\ProfesionalUser.class
 com\hospital\authservice\entity\TerminosCondiciones$TerminosCondicionesBuilder.class
+com\hospital\authservice\dto\FichaClinicaMicroDto$FichaClinicaMicroDtoBuilder.class
 com\hospital\authservice\security\JwtAuthenticationFilter.class
 com\hospital\authservice\entity\Profesional$ProfesionalBuilder.class
 com\hospital\authservice\repository\ProfesionalRepository.class

@@ -18,6 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import com.hospital.authservice.exception.GlobalExceptionHandler;
 
 @ExtendWith(MockitoExtension.class)
 class AuthControllerTest {
@@ -34,7 +35,11 @@ class AuthControllerTest {
 
         @BeforeEach
         void setUp() {
-                this.mockMvc = MockMvcBuilders.standaloneSetup(authController).build();
+                this.mockMvc = MockMvcBuilders
+                                .standaloneSetup(authController)
+                                .setControllerAdvice(new GlobalExceptionHandler())
+                                .build();
+
                 this.objectMapper = new ObjectMapper();
         }
 
@@ -123,18 +128,14 @@ class AuthControllerTest {
 
         @Test
         void testRegisterBadRequest() throws Exception {
-                // Given
+
                 RegisterRequest request = RegisterRequest.builder()
-                                .username("") // Invalid username
+                                .username("")
                                 .password("Password123!")
-                                .email("invalid-email") // Invalid email
+                                .email("invalid-email")
                                 .tipoUsuario("PACIENTE")
                                 .build();
 
-                when(authService.register(any(RegisterRequest.class)))
-                                .thenThrow(new RuntimeException("Datos inválidos"));
-
-                // When & Then
                 mockMvc.perform(post("/auth/register")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -207,10 +208,7 @@ class AuthControllerTest {
 
         @Test
         void testLogoutBadRequest() throws Exception {
-                // Given
-                when(authService.logout(any(LogoutRequest.class))).thenThrow(new RuntimeException("Error en logout"));
 
-                // When & Then
                 mockMvc.perform(post("/auth/logout")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{}"))
@@ -219,9 +217,12 @@ class AuthControllerTest {
 
         @Test
         void testValidateTokenSuccess() throws Exception {
-                // When & Then
+
+                when(authService.validateToken("valid-token"))
+                                .thenReturn(true);
+
                 mockMvc.perform(get("/auth/validate")
-                                .param("token", "valid-token"))
+                                .header("Authorization", "Bearer valid-token"))
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.success").value(true))
                                 .andExpect(jsonPath("$.data").value(true))
@@ -230,21 +231,25 @@ class AuthControllerTest {
 
         @Test
         void testValidateTokenInvalid() throws Exception {
-                // When & Then
+
+                when(authService.validateToken("invalid-token"))
+                                .thenReturn(false);
+
                 mockMvc.perform(get("/auth/validate")
-                                .param("token", "invalid-token"))
+                                .header("Authorization", "Bearer invalid-token"))
                                 .andExpect(status().isUnauthorized())
                                 .andExpect(jsonPath("$.success").value(false))
-                                .andExpect(jsonPath("$.errorCode").value("INVALID_TOKEN"));
+                                .andExpect(jsonPath("$.message")
+                                                .value("Token inválido o expirado"));
         }
 
         @Test
         void testHealthCheck() throws Exception {
-                // When & Then
+
                 mockMvc.perform(get("/auth/health"))
                                 .andExpect(status().isOk())
                                 .andExpect(jsonPath("$.success").value(true))
-                                .andExpect(jsonPath("$.data").value("Auth service is running"))
-                                .andExpect(jsonPath("$.errorCode").value("OK"));
+                                .andExpect(jsonPath("$.data").value("OK"))
+                                .andExpect(jsonPath("$.message").value("Auth service running"));
         }
 }

@@ -171,7 +171,7 @@ class PacienteUserTest {
         assertEquals("Perez", usuario.getPersona().getApellidos());
         assertEquals("DNI", usuario.getPersona().getTipoDocumento());
         assertEquals("12345678", usuario.getPersona().getNumeroDocumento());
-        assertEquals("1990-01-01", usuario.getPersona().getFechaNacimiento());
+        assertEquals(LocalDate.of(1990, 1, 1), usuario.getPersona().getFechaNacimiento());
         assertEquals("M", usuario.getPersona().getGenero());
         assertEquals("123456789", usuario.getPersona().getTelefono());
         assertEquals("Test Address", usuario.getPersona().getDireccion());
