@@ -30,7 +30,6 @@ public class TutorUser implements User {
 
         validarDatosEspecificos(request);
 
-        
         Persona persona = Persona.builder()
                 .nombres(request.getNombres())
                 .apellidos(request.getApellidos())
@@ -44,7 +43,6 @@ public class TutorUser implements User {
                 .activo(true)
                 .build();
 
-        
         Set<Role> roles = new HashSet<>();
         request.getRoles().forEach(roleName -> {
             Role role = roleRepository.findByNombre(roleName)
@@ -62,11 +60,10 @@ public class TutorUser implements User {
                 .roles(roles)
                 .build();
 
-        
         List<String> pacientes = request.getPacientesRuts();
 
         if (pacientes.isEmpty()) {
-            throw new RuntimeException("No se encontraron pacientes con los RUTs proporcionados");
+            throw new IllegalArgumentException("Debe asociar al menos un paciente");
         }
 
         Tutor tutor = Tutor.builder()
@@ -82,7 +79,6 @@ public class TutorUser implements User {
 
     @Override
     public void validarDatosEspecificos(RegisterRequest request) {
-
 
         if (request.getPacientesRuts() == null || request.getPacientesRuts().isEmpty()) {
             throw new IllegalArgumentException("Debe asociar al menos un paciente");
