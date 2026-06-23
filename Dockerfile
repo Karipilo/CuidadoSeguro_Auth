@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Etapa 2: Runtime
-FROM FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre
 
 # Instalar dependencias necesarias
 RUN apt-get update && apt-get install -y \
