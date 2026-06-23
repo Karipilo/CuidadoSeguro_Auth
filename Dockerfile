@@ -33,7 +33,7 @@ RUN mkdir -p /app/logs && chown -R appuser:appuser /app
 USER appuser
 
 # Exponer puerto
-EXPOSE 8080
+EXPOSE 8081
 
 # Variables de entorno por defecto
 ENV JAVA_OPTS="-Xmx512m -Xms256m -XX:+UseG1GC -XX:+UseContainerSupport"
@@ -41,7 +41,7 @@ ENV SPRING_PROFILES_ACTIVE=prod
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-    CMD curl -f http://localhost:8080/auth/health || exit 1
+    CMD curl -f http://localhost:8081/auth/health || exit 1
 
 # Comando para ejecutar la aplicación
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
