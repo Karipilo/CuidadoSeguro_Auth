@@ -375,7 +375,7 @@ public class AuthService {
             log.info("ANTES DE PACIENTES");
 
             restTemplate.exchange(
-                    "http://localhost:8082/pacientes",
+                    "http://alb-ms-pacientes-1492385033.us-east-1.elb.amazonaws.com:8082/pacientes",
                     HttpMethod.POST,
                     entity,
                     Object.class);
@@ -408,7 +408,7 @@ public class AuthService {
             HttpEntity<FichaClinicaMicroDto> fichaEntity = new HttpEntity<>(fichaDto, headers);
 
             restTemplate.exchange(
-                    "http://localhost:8083/fichas",
+                    "http://dmms-305868912.us-east-1.elb.amazonaws.com:8083/fichas",
                     HttpMethod.POST,
                     fichaEntity,
                     Object.class);
